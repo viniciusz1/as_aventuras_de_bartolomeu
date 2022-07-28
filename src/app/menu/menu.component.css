@@ -49,6 +49,13 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   color: #FFF;
+  text-shadow: 5px 5px rgba(0, 0, 0, 0.548);
+}
+
+.p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  color: #FFF;
 }
 
 .btn{
