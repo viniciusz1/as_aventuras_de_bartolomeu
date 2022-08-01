@@ -15,6 +15,7 @@ export class Parte2Component implements OnInit {
   ganhou = false;
 
   ngOnInit(): void {
+    
   }
 
   ClickDragao() {

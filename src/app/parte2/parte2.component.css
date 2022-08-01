@@ -28,21 +28,13 @@
         right: 50px;
     }
     to {
-        right: 200px;
+        right: 800px;
     }
   }
 
-#containerDragaoMexer {
-    position: absolute;
-    overflow: hidden;
-    width: 30%;
-    bottom: 50px;
-    animation: mexer 10s;
-}
-
 @keyframes mexer {
     from {
-        right: 200px;
+        right: 800px;
     }
     to {
         right: 50px;
