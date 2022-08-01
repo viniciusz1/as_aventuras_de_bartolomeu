@@ -5,10 +5,28 @@
             <div class="menu">
               <img src="../../assets/Titulo.png" class="TituloIMG">
               <h1></h1>
-              <input type="text" class="input-name" placeholder="Nickname...">
-                <button class="btn" routerLink="nivel-1">Iniciar Game</button>
-                <button class="btn">Ranking</button>
+              <input type="text" [(ngModel)]="nick" class="input-name" placeholder="Nickname...">
+                <button class="btn mt-5" (click)="entrar()">Iniciar Game</button>
             </div>
+        </div>
+
+
+
+        <div class="ranking position-absolute" style="right:10%">
+          <table class="table table-dark table-hover table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Tempo</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let i of ranking">
+                <th scope="row">{{i.nome}}</th>
+                <td>{{i.tempo}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     </div>
 </div>
