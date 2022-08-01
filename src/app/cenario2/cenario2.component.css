@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+#containerGeral {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+
 #container {
     position: relative;
     overflow: hidden;

@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#containerConteudo {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+
+#imgDragao {
+    width: 90%;
+    bottom: 5px;
+}
