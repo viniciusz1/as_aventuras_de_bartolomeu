@@ -12,7 +12,7 @@ interface Pessoa{
 export class MenuComponent implements OnInit {
 
   constructor(private router: Router) { }
-  ranking:Pessoa[] = []
+  ranking:Pessoa[] = [{nome: "Vinícius Bonatti", tempo: 123}]
 
   nick=""
   tempo = 0
