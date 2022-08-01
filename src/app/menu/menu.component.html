@@ -4,7 +4,7 @@
         <div class="container-menu">
             <div class="menu">
               <img src="../../assets/Titulo.png" class="TituloIMG">
-              <h1></h1>
+              <h1 class="nickname">Insira seu nickname: </h1>
               <input type="text" [(ngModel)]="nick" class="input-name" placeholder="Nickname...">
                 <button class="btn mt-5" (click)="entrar()">Iniciar Game</button>
             </div>
@@ -12,7 +12,8 @@
 
 
 
-        <div class="ranking position-absolute" style="right:10%">
+        <div class="ranking position-absolute tabela" style="right:10%">
+          <h4>Ranking</h4>
           <table class="table table-dark table-hover table-striped">
             <thead>
               <tr>

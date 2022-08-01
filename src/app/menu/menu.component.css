@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+.tabela{
+  color: white;
+  padding: 10px;
+  background-color: #00000078;;
+  
+}
 
 .tela{
   width: 100%;
@@ -48,11 +54,16 @@
   width: 20rem;
 }
 
+.nickname{
+  text-shadow: 1px 2px black;
+  color: white;
+}
+
 .input-name{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 7px;
   border: none;
   outline: none;
   border-radius: 5px;
