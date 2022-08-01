@@ -4,13 +4,14 @@
     overflow: hidden;
 }
 
-#containerConteudo {
+#containerDragao {
     position: absolute;
-    width: 100%;
     overflow: hidden;
+    width: 30%;
+    bottom: 50px;
+    
 }
 
 #imgDragao {
-    width: 90%;
-    bottom: 5px;
+    width: 100%;
 }
