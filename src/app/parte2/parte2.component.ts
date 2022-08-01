@@ -15,18 +15,6 @@ export class Parte2Component implements OnInit {
   ganhou = false;
 
   ngOnInit(): void {
-    // let dragao = document.getElementById('containerDragao')
-    // for (let movimentar = 0; movimentar < 10; movimentar++) {
-    //   if (movimentar < 9) {
-    //     dragao?.classList.remove("containerDragaoMexer");
-    //     dragao?.classList.add("containerDragao");
-    //   }
-    //   if (movimentar == 9) {
-    //     dragao?.classList.remove("containerDragao");
-    //     dragao?.classList.add("containerDragaoMexer");
-    //     movimentar = 0;
-    //   }
-    // }
   }
 
   ClickDragao() {
