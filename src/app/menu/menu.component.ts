@@ -18,8 +18,10 @@ export class MenuComponent implements OnInit {
   tempo = 0
   entrar(){
     this.ranking.push({nome: this.nick, tempo: this.tempo})
+    localStorage.setItem('ranking', JSON.stringify(this.ranking))
+    // this.ranking = JSON.parse(localStorage.getItem('ranking')!);
     console.log(this.ranking)
-    // this.router.navigate(['/nivel-1'])
+    this.router.navigate(['/nivel-1'])
   }
   ngOnInit(): void {
   }
