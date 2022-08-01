@@ -48,13 +48,23 @@
   width: 20rem;
 }
 
+.input-name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
 .btn{
   width: 20%;
   height: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid black 1.5px;
+  /* border: solid black 1.5px; */
   border-radius: 5px;
   background-color: #d3d3d3;
   color: #000;
