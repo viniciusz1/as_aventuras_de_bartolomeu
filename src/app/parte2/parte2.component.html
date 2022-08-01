@@ -1,4 +1,10 @@
 <app-cenario2></app-cenario2>
-<div id="containerDragao">
-    <img src="../../assets/Dragao.png" id="imgDragao" alt="Dragao" />
+<div id="geral">
+    <div *ngIf="ganhou" id="containerTexto">
+        <h1>PARABÉNS! VOCÊ GANHOU!</h1>
+    </div>
+    <div id="containerDragao">
+        <h1>{{vida}}</h1>
+        <img (click)="ClickDragao()" src="../../assets/Dragao.png" id="imgDragao" alt="Dragao" />
+    </div>
 </div>

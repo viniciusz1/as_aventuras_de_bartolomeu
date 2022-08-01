@@ -4,14 +4,59 @@
     overflow: hidden;
 }
 
+#containerTexto {
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content:center ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #containerDragao {
     position: absolute;
     overflow: hidden;
     width: 30%;
     bottom: 50px;
-    
+    right: 50px;
+    animation: mexer2 10s;
 }
+
+@keyframes mexer2 {
+    from {
+        right: 50px;
+    }
+    to {
+        right: 200px;
+    }
+  }
+
+#containerDragaoMexer {
+    position: absolute;
+    overflow: hidden;
+    width: 30%;
+    bottom: 50px;
+    animation: mexer 10s;
+}
+
+@keyframes mexer {
+    from {
+        right: 200px;
+    }
+    to {
+        right: 50px;
+    }
+  }
 
 #imgDragao {
     width: 100%;
+    transform: scaleX(-1);
+    cursor: pointer;
+}
+
+h1 {
+    color: white;
+    text-shadow: 3px 2px black;
+    margin-left: 80px;
 }
