@@ -20,24 +20,15 @@
     width: 30%;
     bottom: 50px;
     right: 50px;
-    animation: mexer2 10s;
+    animation: mexer 5s infinite alternate;
 }
 
-@keyframes mexer2 {
-    from {
-        right: 50px;
-    }
-    to {
-        right: 800px;
-    }
-  }
-
 @keyframes mexer {
-    from {
-        right: 800px;
-    }
-    to {
+    0% {
         right: 50px;
+    } 
+    100% {
+        right: 800px;
     }
   }
 
