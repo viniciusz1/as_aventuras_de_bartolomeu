@@ -26,15 +26,15 @@
 }
 
 #Arvore2 {
-    margin-left: 10rem;
-    margin-bottom: -2px;
+    margin-left: 30rem;
+    margin-bottom: -58px;
 }
 #Arvore3 {
     margin-left: 2rem;
     margin-bottom: -15px;
 }
 
-#arvores {
+.arvores {
     bottom: 80px;
     position: absolute;
 }

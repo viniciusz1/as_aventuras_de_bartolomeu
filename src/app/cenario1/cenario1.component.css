@@ -33,12 +33,27 @@
     position: absolute;
 }
 
+#girl{
+  width: 5%;
+  position: absolute;
+  bottom: 0;
+  right: 650px;
+}
+
+#dog{
+  width: 4%;
+  position: absolute;
+  bottom: 10px;
+  right: 300px;
+  transform: scaleX(-1);
+}
+
 #chao {
     display: flex;
     bottom: 0;
     margin-bottom: -5px;
     position: absolute;
-    
+
 }
 
 .terra {

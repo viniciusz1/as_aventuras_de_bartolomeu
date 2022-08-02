@@ -19,28 +19,24 @@ export class Parte2Component implements OnInit {
   }
 
   vida = 120;
-  ganhou = false;
+  ganhou = 0;
+  tempo = 0;
 
   ngOnInit(): void {
-    // let dragao = document.getElementById('containerDragao')
-    // for (let movimentar = 0; movimentar < 10; movimentar++) {
-    //   if (movimentar < 9) {
-    //     dragao?.classList.remove("containerDragaoMexer");
-    //     dragao?.classList.add("containerDragao");
-    //   }
-    //   if (movimentar == 9) {
-    //     dragao?.classList.remove("containerDragao");
-    //     dragao?.classList.add("containerDragaoMexer");
-    //     movimentar = 0;
-    //   }
-    // }
+    setTimeout(() => {
+      if (this.vida == 0) {
+        this.ganhou = 1
+      } else {
+        this.ganhou = 2
+      }
+    }, 20000)
   }
 
   ClickDragao() {
     if (this.vida > 0) {
       this.vida = this.vida - 1;
     } else {
-      this.ganhou = true;
+      this.ganhou = 1;
       setTimeout(() => {
         this.router.navigate(['/']);
       }, 10000)

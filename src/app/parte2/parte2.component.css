@@ -20,32 +20,15 @@
     width: 30%;
     bottom: 50px;
     right: 50px;
-    animation: mexer2 10s;
-}
-
-@keyframes mexer2 {
-    from {
-        right: 50px;
-    }
-    to {
-        right: 200px;
-    }
-  }
-
-#containerDragaoMexer {
-    position: absolute;
-    overflow: hidden;
-    width: 30%;
-    bottom: 50px;
-    animation: mexer 10s;
+    animation: mexer 5s infinite alternate;
 }
 
 @keyframes mexer {
-    from {
-        right: 200px;
-    }
-    to {
+    0% {
         right: 50px;
+    } 
+    100% {
+        right: 800px;
     }
   }
 
