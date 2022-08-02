@@ -29,7 +29,11 @@ export class Parte2Component implements OnInit {
       } else {
         this.ganhou = 2
       }
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      },5000)
     }, 20000)
+    
   }
 
   ClickDragao() {
