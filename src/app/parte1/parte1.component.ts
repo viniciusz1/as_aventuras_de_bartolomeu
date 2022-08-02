@@ -30,21 +30,3 @@ export class Parte1Component implements OnInit {
   ngOnInit(): void {
   }
 }
-//  else if(tecla == 37) {
-	 
-//   // seta pra ESQUERDA
-   
-//  } else if(tecla == 38) {
-  
-//   // seta pra CIMA
-   
-//  } else if(tecla == 39) {
-  
-//   // seta pra DIREITA
-   
-//  } else if(tecla == 40) {
-  
-//   // seta pra BAIXO
-   
-//  }
-// }
