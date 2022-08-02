@@ -9,6 +9,7 @@ import { Parte1Component } from './parte1/parte1.component';
 import { Parte2Component } from './parte2/parte2.component';
 import { RotasModule } from './rotas.module';
 import { FormsModule } from '@angular/forms';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     RotasModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

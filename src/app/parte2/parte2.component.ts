@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { AppService } from '../app.service';
 @Component({
   selector: 'app-parte2',
   templateUrl: './parte2.component.html',
@@ -8,8 +9,14 @@ import { Router, RouterModule } from '@angular/router';
 export class Parte2Component implements OnInit {
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private appService: AppService
+  ) { 
+    appService.keydown()
+    .subscribe((e) => {
+      console.log(e);
+    })
+  }
 
   vida = 120;
   ganhou = 0;
