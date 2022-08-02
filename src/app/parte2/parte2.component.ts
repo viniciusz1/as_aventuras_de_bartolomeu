@@ -14,8 +14,21 @@ export class Parte2Component implements OnInit {
   ) { 
     appService.keydown()
     .subscribe((e) => {
-      console.log(e);
+      this.onKeyDown(e);
     })
+  }
+  
+  left = 0;
+  onKeyDown(tecla: KeyboardEvent){
+    if(tecla.key == 'ArrowRight'){
+      this.left = this.left + 10      
+    }
+    if(tecla.key == 'ArrowLeft'){
+      this.left = this.left - 10
+    }
+    if(this.left > 1150){
+      this.router.navigate(['/nivel-2'])
+    }
   }
 
   vida = 120;
