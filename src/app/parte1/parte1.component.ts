@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 
 @Component({
@@ -16,10 +17,14 @@ export class Parte1Component implements OnInit {
     if(tecla.key == 'ArrowLeft'){
       this.left = this.left - 10
     }
+    if(this.left > 1150){
+      this.router.navigate(['/nivel-2'])
+    }
   }
 
   constructor(
-    private appService: AppService
+    private appService: AppService,
+    private router: Router
   ) { 
     appService.keydown()
     .subscribe((e) => {
