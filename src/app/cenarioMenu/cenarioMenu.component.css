@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+#ceu {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#Arvore2 {
+    margin-left: -15rem;
+}
+
+#Arvore3 {
+    margin-left: -11rem;
+}
+
+#Arvore4 {
+    margin-left: -4rem;
+}
+
+#Arvore5 {
+    margin-left: 4rem;
+}
+
+#Arvore6 {
+    margin-left: 8rem;
+}
+
+#Arvore7 {
+    margin-left: 20rem;
+}
+
+#arvores {
+    display: flex;
+    bottom: 80px;
+    position: absolute;
+}
+
+#girl{
+  width: 5%;
+  position: absolute;
+  bottom: 0;
+  right: 650px;
+}
+
+#dog{
+  width: 4%;
+  position: absolute;
+  bottom: 10px;
+  right: 300px;
+  transform: scaleX(-1);
+}
+
+#chao {
+    width: 100%;
+    display: flex;
+    bottom: 0;
+    margin-bottom: -5px;
+    position: absolute;
+
+}
+
+.terra {
+    margin-left: -50px;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
