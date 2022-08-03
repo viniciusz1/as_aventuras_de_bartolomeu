@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-parte3',
@@ -7,9 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Parte3Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
+
+  ganhou = 0;
+  vida = 120;
 
   ngOnInit(): void {
+    setTimeout(() => {
+      if (this.vida == 0) {
+        this.ganhou = 1
+      } else {
+        this.ganhou = 2
+      }
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      },5000)
+    }, 20000)
+  }
+  
+  ClickDragao() {
+    if (this.vida > 0) {
+      this.vida = this.vida - 1;
+    } else {
+      this.ganhou = 1;
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 10000)
+    }
   }
 
 }
