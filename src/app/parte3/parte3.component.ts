@@ -84,7 +84,7 @@ export class Parte3Component implements OnInit {
       allowOutsideClick:false
     }).then(
       (e) => {
-        if(e){
+        if(e.value == true){
           this.router.navigate(['/'])
         }
       }

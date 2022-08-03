@@ -42,6 +42,7 @@ export class Parte1Component implements OnInit, OnDestroy {
   alimentou = false
 
   ngOnInit(): void {
+    this.local.set("alimentou", this.alimentou)
     this.left=0
   }
 

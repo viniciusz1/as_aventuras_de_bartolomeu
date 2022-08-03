@@ -23,7 +23,11 @@ export class MenuComponent implements OnInit {
       alert('Coloque um Nickname')
     }
   }
+
+  alimentou = false;
+
   ngOnInit(): void {
+    this.localStorageService.set("alimentou", this.alimentou)
     this.ranking = this.localStorageService.get('ranking')
     console.log(this.ranking)
   }

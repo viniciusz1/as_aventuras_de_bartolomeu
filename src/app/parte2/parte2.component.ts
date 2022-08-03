@@ -44,7 +44,9 @@ export class Parte2Component implements OnInit {
           this.left = this.left - 10
         }
         if (this.left > 1150) {
+          console.log('p2')
           this.router.navigate(['/nivel-3'])
+          // this.left = -1000000000
         }
       }
     }
