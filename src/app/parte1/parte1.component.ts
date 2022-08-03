@@ -12,12 +12,29 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
-    if(tecla.key == 'ArrowRight'){
-      this.left = this.left + 10      
+    if(this.left < 550){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10      
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+      }      
+    }else if(this.left < 880 && this.clicou_menina){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10      
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+      }
+    }else if(this.left > 800 && this.clicou_cachorro){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10      
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+      }
     }
-    if(tecla.key == 'ArrowLeft'){
-      this.left = this.left - 10
-    }
+
     if(this.left > 1150){
       this.router.navigate(['/nivel-2'])
     }

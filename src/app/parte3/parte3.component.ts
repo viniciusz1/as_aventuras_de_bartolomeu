@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
 import { LocalStorageService } from '../local-storage.service';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-parte3',
   templateUrl: './parte3.component.html',
   styleUrls: ['./parte3.component.css'],
 })
+
 export class Parte3Component implements OnInit {
   constructor(private router: Router,
     private appService: AppService,
@@ -18,9 +20,13 @@ export class Parte3Component implements OnInit {
       this.onKeyDown(e);
     })
   }
-
+  tela = true
   ganhou = 0;
   vida = 5;
+
+  // ngOnDestroy(): void {
+  //   this.tela=false
+  // }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -37,10 +43,13 @@ export class Parte3Component implements OnInit {
 
   fim = 200;
 
+  timerTela = 200
+
   repeat() {
     setInterval(() => {
+      this.timerTela = this.fim / 10
       this.fim--;
-    }, 100);
+    }, 100)
   }
 
   ClickDragao() {
@@ -64,12 +73,17 @@ export class Parte3Component implements OnInit {
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
+
+    if(this.tela){
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
       }
+    }
+
+      
   }
 
   modalWin(){
@@ -84,7 +98,7 @@ export class Parte3Component implements OnInit {
       allowOutsideClick:false
     }).then(
       (e) => {
-        if(e){
+        if(e.value == true){
           this.router.navigate(['/'])
         }
       }
