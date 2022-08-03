@@ -64,6 +64,26 @@ export class Parte3Component implements OnInit {
       } else {
         this.vida = this.vida - 1;
       }
+      if (this.vida <= 0) {
+        this.ganhou = 1;
+      this.localStorageService.set('nivel-2', 20 - (this.fim/10))
+      this.localStorageService.setRanking()
+      Swal.fire({
+        title: 'VOCÊ GANHOU! PARABÉNS!!',
+        width: 600,
+        padding: '3em',
+        color: '#FFF',
+        background: 'transparent',
+        confirmButtonText: "Voltar",
+        confirmButtonColor: "green"
+      }).then(
+        (e) => {
+          if(e){
+            this.router.navigate(['/'])
+          }
+        }
+      )
+      }
     } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))

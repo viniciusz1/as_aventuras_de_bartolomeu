@@ -58,7 +58,7 @@ export class Parte2Component implements OnInit {
         this.ganhou = 1
       } else {
         this.ganhou = 2
-        
+
         Swal.fire({
           title: 'GAME OVER!',
           width: 600,
@@ -95,6 +95,10 @@ export class Parte2Component implements OnInit {
         this.vida = this.vida - 2;
       } else {
         this.vida = this.vida - 1;
+      }
+      if (this.vida <= 0) {
+        this.ganhou = 1;
+        this.localStorageService.set('nivel-1', 20 - (this.fim/10))
       }
     } else {
       this.ganhou = 1;
