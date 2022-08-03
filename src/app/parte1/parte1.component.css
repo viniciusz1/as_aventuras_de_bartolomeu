@@ -16,13 +16,10 @@
 .mensagem-cachorro{
     position: absolute;
     background-color: white;
-<<<<<<< Updated upstream
     width: 165px;
     height: 115px;
-=======
     width: 160px;
     height: 95px;
->>>>>>> Stashed changes
     left: 1024px;
     bottom: 176px;
     border: 1px solid black;
