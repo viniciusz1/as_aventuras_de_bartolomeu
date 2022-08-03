@@ -27,12 +27,15 @@ export class LocalStorageService {
     let jogador = this.get('jogador')
     let oldranking = this.get('ranking')
     oldranking.push({nivel1, nivel2, total, jogador})
-    this.set('ranking', oldranking)
+    const newranking = this.ordenar(oldranking)
+    this.set('ranking', newranking)
     this.remove('nivel-1')
     this.remove('nivel-2')
     this.remove('jogador')
   }
-
+  ordenar(ranking: {nivel1: number, nivel2: number, total: number, jogador: string}[]){
+    return ranking.sort((a, b)=> a.total-b.total)
+  }
 
   get(key: string): any {
     if (this.storage) {
