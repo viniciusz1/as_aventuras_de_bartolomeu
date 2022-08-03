@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
 import { LocalStorageService } from '../local-storage.service';
@@ -15,36 +15,36 @@ export class Parte2Component implements OnInit {
     private router: Router,
     private appService: AppService,
     private localStorageService: LocalStorageService
-  ) { 
+  ) {
     appService.keydown()
-    .subscribe((e) => {
-      this.onKeyDown(e);
-    })
+      .subscribe((e) => {
+        this.onKeyDown(e);
+      })
   }
 
   fim = 200;
-  
+
 
 
   left = 0;
-  onKeyDown(tecla: KeyboardEvent){
-    if(this.left < 800){
-      if(tecla.key == 'ArrowRight'){
-        this.left = this.left + 10      
+  onKeyDown(tecla: KeyboardEvent) {
+    if (this.left < 800) {
+      if (tecla.key == 'ArrowRight') {
+        this.left = this.left + 10
       }
-      if(tecla.key == 'ArrowLeft'){
+      if (tecla.key == 'ArrowLeft') {
         this.left = this.left - 10
       }
-    }else{
-      if(this.vida == 0)
-        if(tecla.key == 'ArrowRight'){
-          this.left = this.left + 10      
+    } else {
+      if (this.vida == 0)
+        if (tecla.key == 'ArrowRight') {
+          this.left = this.left + 10
         }
-        if(tecla.key == 'ArrowLeft'){
-          this.left = this.left - 10
-        }
-        if(this.left > 1150){
-          this.router.navigate(['/nivel-3'])
+      if (tecla.key == 'ArrowLeft') {
+        this.left = this.left - 10
+      }
+      if (this.left > 1150) {
+        this.router.navigate(['/nivel-3'])
       }
     }
   }
@@ -54,49 +54,49 @@ export class Parte2Component implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      if (this.vida == 0) {
-        this.ganhou = 1
-      } else {
-        this.ganhou = 2
-        Swal.fire({
-          title: 'GAME OVER!',
-          width: 600,
-          padding: '3em',
-          color: '#FFF',
-          background: 'transparent',
-          confirmButtonText: "Voltar",
-          confirmButtonColor: "#9f1b1b"
-        }).then(
-          (e) => {
-            if(e){
-              this.router.navigate(['/'])
-            }
-          }
-        )
+      if (this.ganhou != 1) {
+        this.modalGameOver();
       }
     }, 20000)
     this.repeat();
   }
+
+
   timerTela = 200
 
   repeat() {
     setInterval(() => {
-      this.timerTela = this.fim/10
+      this.timerTela = this.fim / 10
       this.fim--;
     }, 100);
-}
+  }
 
 
   ClickDragao() {
-    if (this.vida > 0) {
+    if (this.vida >= 0) {
       this.vida = this.vida - 1;
     } else {
       this.ganhou = 1;
-      this.localStorageService.set('nivel-1', 20 - (this.fim/10))
-      setTimeout(() => {
-        // this.router.navigate(['/']);
-      }, 10000)
+      this.localStorageService.set('nivel-1', 20 - (this.fim / 10))
+
     }
   }
 
+  modalGameOver() {
+    Swal.fire({
+      title: 'GAME OVER!',
+      width: 600,
+      padding: '3em',
+      color: '#FFF',
+      background: 'transparent',
+      confirmButtonText: "Voltar",
+      confirmButtonColor: "#9f1b1b"
+    }).then(
+      (e) => {
+        if (e) {
+          this.router.navigate(['/'])
+        }
+      }
+    )
+  }
 }
