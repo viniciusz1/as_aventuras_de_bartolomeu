@@ -33,5 +33,6 @@ export class Parte1Component implements OnInit {
   }
 
   ngOnInit(): void {
+    this.left=0
   }
 }
