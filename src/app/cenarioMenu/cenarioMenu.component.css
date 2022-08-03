@@ -15,16 +15,15 @@
     overflow: hidden;
 }
 
-#Arvore2 {
-    margin-left: -15rem;
+#container-casa{
+  display: flex;
+  bottom: 80px;
+  position: absolute;
+  margin-left: 20px;
 }
 
-#Arvore3 {
-    margin-left: -11rem;
-}
-
-#Arvore4 {
-    margin-left: -4rem;
+#casa{
+  width: 60%;
 }
 
 #Arvore5 {
@@ -43,6 +42,7 @@
     display: flex;
     bottom: 80px;
     position: absolute;
+    margin-left: 25%;
 }
 
 #girl{
