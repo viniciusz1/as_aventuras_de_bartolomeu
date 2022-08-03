@@ -1,5 +1,7 @@
 <app-cenario1 (keydown)="onKeyDown($event)" ></app-cenario1>
 <img [style.left.px]="left" src="../../assets/Personagem.png" class="position-absolute personagem" alt="">
+<img id="dog" [style.left.px]="left -50"  *ngIf="clicou_cachorro" src="../../assets/cachorro.png" alt="dog">
+<img id="dog-esq" *ngIf="!clicou_cachorro" src="../../assets/cachorro.png" alt="dog">
 <div *ngIf="left > 450 && left < 650 && !clicou_menina" class="mensagem">Olá jovem aventureiro! Um dragão acabou de passar por aqui e aquele monstro roubou minha coroa e todo o meu dinheiro.... Poderia me ajudar recuperando as minhas coisas?
         <button (click)="sim()" class="opcao">sim</button>
         <button (click)="nao()" class="opcao">nao</button>
