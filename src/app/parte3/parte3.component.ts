@@ -29,27 +29,14 @@ export class Parte3Component implements OnInit {
         
       } else {
         this.ganhou = 2;
-        Swal.fire({
-          title: 'GAME OVER!',
-          width: 600,
-          padding: '3em',
-          color: '#FFF',
-          background: 'transparent',
-          confirmButtonText: "Voltar",
-          confirmButtonColor: "#9f1b1b"
-        }).then(
-          (e) => {
-            if(e){
-              this.router.navigate(['/'])
-            }
-          }
-        )
+        this.modalGameOver();
       }
     }, 20000);
     this.repeat()
   }
 
   fim = 200;
+
   repeat() {
     setInterval(() => {
       this.fim--;
@@ -88,21 +75,7 @@ export class Parte3Component implements OnInit {
       this.ganhou = 1;
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))
       this.localStorageService.setRanking()
-      Swal.fire({
-        title: 'VOCÊ GANHOU! PARABÉNS!!',
-        width: 600,
-        padding: '3em',
-        color: '#FFF',
-        background: 'transparent',
-        confirmButtonText: "Voltar",
-        confirmButtonColor: "green"
-      }).then(
-        (e) => {
-          if(e){
-            this.router.navigate(['/'])
-          }
-        }
-      )
+      this.modalWin();
     }
   }
 
@@ -128,4 +101,41 @@ export class Parte3Component implements OnInit {
       }
     }
   }
+
+  modalWin(){
+    Swal.fire({
+      title: 'VOCÊ GANHOU! PARABÉNS!!',
+      width: 600,
+      padding: '3em',
+      color: '#FFF',
+      background: 'transparent',
+      confirmButtonText: "Voltar",
+      confirmButtonColor: "green"
+    }).then(
+      (e) => {
+        if(e){
+          this.router.navigate(['/'])
+        }
+      }
+    )
+  }
+
+  modalGameOver(){
+    Swal.fire({
+      title: 'GAME OVER!',
+      width: 600,
+      padding: '3em',
+      color: '#FFF',
+      background: 'transparent',
+      confirmButtonText: "Voltar",
+      confirmButtonColor: "#9f1b1b"
+    }).then(
+      (e) => {
+        if(e){
+          this.router.navigate(['/'])
+        }
+      }
+    )
+  }
+
 }
