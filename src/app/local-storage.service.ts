@@ -21,13 +21,16 @@ export class LocalStorageService {
   }
 
   setRanking(){
-    let fase1 = this.get('fase-1')
-    let fase2 = this.get('fase-2')
-    let total = fase1 + fase2
+    let nivel1 = this.get('nivel-1')
+    let nivel2 = this.get('nivel-2')
+    let total = nivel1 + nivel2
     let jogador = this.get('jogador')
-
-    this.set('ranking', {fase1, fase2, total, jogador})
-
+    let oldranking = this.get('ranking')
+    oldranking.push({nivel1, nivel2, total, jogador})
+    this.set('ranking', oldranking)
+    this.remove('nivel-1')
+    this.remove('nivel-2')
+    this.remove('jogador')
   }
 
 

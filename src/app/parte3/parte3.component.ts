@@ -19,7 +19,7 @@ export class Parte3Component implements OnInit {
   }
 
   ganhou = 0;
-  vida = 20;
+  vida = 5;
 
   //Arrumar timer para verificar se o jogador ganhou
 
@@ -47,7 +47,6 @@ export class Parte3Component implements OnInit {
   repeat() {
     setInterval(() => {
       this.fim--;
-      console.log(this.fim)
     }, 100);
   }
 
@@ -56,7 +55,7 @@ export class Parte3Component implements OnInit {
       this.vida = this.vida - 1;
     } else {
       this.ganhou = 1;
-      this.localStorageService.set('nivel-3', 20 - (this.fim/10))
+      this.localStorageService.set('nivel-2', 20 - (this.fim/10))
       this.localStorageService.setRanking()
       setTimeout(() => {
         // this.router.navigate(['/']);

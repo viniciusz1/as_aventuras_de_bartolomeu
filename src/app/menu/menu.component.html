@@ -26,8 +26,10 @@
             </thead>
             <tbody class="table-group-divider">
               <tr *ngFor="let i of ranking">
-                <th scope="row">{{i.nome}}</th>
-                <td>{{i.tempo}}</td>
+                <th scope="row">{{i.jogador}}</th>
+                <td>{{i.nivel1 | number}}</td>
+                <td>{{i.nivel2 | number}}</td>
+                <td>{{i.total | number}}</td>
               </tr>
             </tbody>
           </table>

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-interface Pessoa{
-  nome: string,
-  tempo: number
-}
+import { LocalStorageService } from '../local-storage.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,19 +9,19 @@ interface Pessoa{
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  ranking:Pessoa[] = [{nome: "Vinícius Bonatti", tempo: 123}]
+  constructor(private router: Router,
+  private localStorageService: LocalStorageService) { }
+  ranking: {nivel1: number, nivel2: number, total: number, jogador: string}[] = []
 
   nick=""
   tempo = 0
   entrar(){
-    this.ranking.push({nome: this.nick, tempo: this.tempo})
-    localStorage.setItem('ranking', JSON.stringify(this.ranking))
-    // this.ranking = JSON.parse(localStorage.getItem('ranking')!);
-    console.log(this.ranking)
+    this.localStorageService.set('jogador', this.nick)
     this.router.navigate(['/nivel-1'])
   }
   ngOnInit(): void {
+    this.ranking = this.localStorageService.get('ranking')
+    console.log(this.ranking)
   }
 
   

@@ -47,7 +47,7 @@ export class Parte2Component implements OnInit {
     }
   }
 
-  vida = 50;
+  vida = 5;
   ganhou = 0;
 
   ngOnInit(): void {
@@ -76,7 +76,7 @@ export class Parte2Component implements OnInit {
       this.vida = this.vida - 1;
     } else {
       this.ganhou = 1;
-      console.log(this.localStorageService.set('nivel-2', 20 - (this.fim/10)))
+      this.localStorageService.set('nivel-1', 20 - (this.fim/10))
       setTimeout(() => {
         // this.router.navigate(['/']);
       }, 10000)
