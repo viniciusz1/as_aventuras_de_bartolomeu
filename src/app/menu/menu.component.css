@@ -60,11 +60,12 @@
 }
 
 .input-name{
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 7px;
-  border: none;
+  border: 1px solid black;
   outline: none;
   border-radius: 5px;
 }

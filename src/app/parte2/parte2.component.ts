@@ -81,7 +81,7 @@ export class Parte2Component implements OnInit {
     let alimentou = this.localStorageService.get("alimentou")
 
     if (this.vida > 0) {
-      if (alimentou != null) {
+      if (alimentou == true) {
         this.vida = this.vida - 2;
       } else {
         this.vida = this.vida - 1;
