@@ -51,11 +51,7 @@ export class Parte2Component implements OnInit {
         if(this.left > 1150){
           this.router.navigate(['/nivel-3'])
       }
-      
     }
-    
-
-    
   }
 
   vida = 50;
