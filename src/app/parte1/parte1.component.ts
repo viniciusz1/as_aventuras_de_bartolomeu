@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef,Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef,Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { LocalStorageService } from '../local-storage.service';
@@ -8,7 +8,7 @@ import { LocalStorageService } from '../local-storage.service';
   templateUrl: './parte1.component.html',
   styleUrls: ['./parte1.component.css'],
 })
-export class Parte1Component implements OnInit {
+export class Parte1Component implements OnInit, OnDestroy {
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
@@ -21,6 +21,9 @@ export class Parte1Component implements OnInit {
     if(this.left > 1150){
       this.router.navigate(['/nivel-2'])
     }
+  } 
+  ngOnDestroy(): void {
+    this.left = 0;
   }
 
   constructor(

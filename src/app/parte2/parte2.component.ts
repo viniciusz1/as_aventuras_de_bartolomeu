@@ -24,7 +24,7 @@ export class Parte2Component implements OnInit {
 
   fim = 200;
 
-
+  
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent) {
@@ -53,6 +53,9 @@ export class Parte2Component implements OnInit {
   vida = 5;
   ganhou = 0;
 
+  
+  
+
   ngOnInit(): void {
     setTimeout(() => {
       if (this.ganhou != 1) {
@@ -69,7 +72,7 @@ export class Parte2Component implements OnInit {
     setInterval(() => {
       this.timerTela = this.fim / 10
       this.fim--;
-    }, 100);
+    }, 100)
   }
 
 
@@ -103,7 +106,8 @@ export class Parte2Component implements OnInit {
       color: '#FFF',
       background: 'transparent',
       confirmButtonText: "Voltar",
-      confirmButtonColor: "#9f1b1b"
+      confirmButtonColor: "#9f1b1b",
+      allowOutsideClick: false
     }).then(
       (e) => {
         if (e) {
