@@ -16,8 +16,12 @@ export class MenuComponent implements OnInit {
   nick=""
   tempo = 0
   entrar(){
-    this.localStorageService.set('jogador', this.nick)
-    this.router.navigate(['/nivel-1'])
+    if(this.nick){
+      this.localStorageService.set('jogador', this.nick)
+      this.router.navigate(['/nivel-1'])
+    }else{
+      alert('Coloque um Nickname')
+    }
   }
   ngOnInit(): void {
     this.ranking = this.localStorageService.get('ranking')
