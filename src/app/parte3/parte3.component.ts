@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
 import { LocalStorageService } from '../local-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-parte3',
@@ -21,27 +22,32 @@ export class Parte3Component implements OnInit {
   ganhou = 0;
   vida = 5;
 
-  //Arrumar timer para verificar se o jogador ganhou
-
-
-
-
   ngOnInit(): void {
-    // this.repeat();
     setTimeout(() => {
       if (this.vida == 0) {
         this.ganhou = 1;
+        
       } else {
         this.ganhou = 2;
+        Swal.fire({
+          title: 'GAME OVER!',
+          width: 600,
+          padding: '3em',
+          color: '#FFF',
+          background: 'transparent',
+          confirmButtonText: "Voltar",
+          confirmButtonColor: "#9f1b1b"
+        }).then(
+          (e) => {
+            if(e){
+              this.router.navigate(['/'])
+            }
+          }
+        )
       }
-      setTimeout(() => {
-        this.router.navigate(['/']);
-      }, 5000);
     }, 20000);
     this.repeat()
   }
-
-  
 
   fim = 200;
   repeat() {
@@ -51,15 +57,32 @@ export class Parte3Component implements OnInit {
   }
 
   ClickDragao() {
+    let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
-      this.vida = this.vida - 1;
+      if (alimentou != null) {
+        this.vida = this.vida - 2;
+      } else {
+        this.vida = this.vida - 1;
+      }
     } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))
       this.localStorageService.setRanking()
-      setTimeout(() => {
-        // this.router.navigate(['/']);
-      }, 10000)
+      Swal.fire({
+        title: 'VOCÊ GANHOU! PARABÉNS!!',
+        width: 600,
+        padding: '3em',
+        color: '#FFF',
+        background: 'transparent',
+        confirmButtonText: "Voltar",
+        confirmButtonColor: "green"
+      }).then(
+        (e) => {
+          if(e){
+            this.router.navigate(['/'])
+          }
+        }
+      )
     }
   }
 

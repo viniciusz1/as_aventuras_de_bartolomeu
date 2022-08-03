@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef,Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-parte1',
@@ -24,7 +25,8 @@ export class Parte1Component implements OnInit {
 
   constructor(
     private appService: AppService,
-    private router: Router
+    private router: Router,
+    private local: LocalStorageService,
   ) { 
     appService.keydown()
     .subscribe((e) => {
@@ -32,7 +34,31 @@ export class Parte1Component implements OnInit {
     })
   }
 
+  clicou_menina = false
+  clicou_cachorro = false
+  alimentou = false
+
   ngOnInit(): void {
     this.left=0
   }
+
+  sim() {
+    this.clicou_menina = true
+  }
+
+  nao() {
+    this.clicou_menina = true
+    this.router.navigate(['/']);
+  }
+
+  alimentar() {
+    this.clicou_cachorro = true
+    this.alimentou = true
+    this.local.set("alimentou", this.alimentou)
+  }
+
+  ignorar() {
+    this.clicou_cachorro = true
+  }
+
 }

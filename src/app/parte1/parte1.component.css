@@ -16,6 +16,8 @@
 .mensagem-cachorro{
     position: absolute;
     background-color: white;
+    width: 165px;
+    height: 115px;
     width: 160px;
     height: 95px;
     left: 1024px;
@@ -24,5 +26,19 @@
     border-radius: 22px 22px 22px 0px;
     padding: 20px;
 
+}
+
+.opcao {
+    margin: 0px 5px 0px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding:  0 5px 0 5px;
+}
+
+.botao2 {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
