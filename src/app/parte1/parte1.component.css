@@ -1,12 +1,12 @@
 .personagem{
-    width: 200px;
+    width: 220px;
     bottom: 50px;
 }
 .mensagem{
     position: absolute;
     background-color: white;
     width: 255px;
-    height: 270px;
+    height: 215px;
     left: 420px;
     bottom: 226px;
     border: 1px solid black;
@@ -16,8 +16,8 @@
 .mensagem-cachorro{
     position: absolute;
     background-color: white;
-    width: 255px;
-    height: 270px;
+    width: 160px;
+    height: 95px;
     left: 1024px;
     bottom: 176px;
     border: 1px solid black;
