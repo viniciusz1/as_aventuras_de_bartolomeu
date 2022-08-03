@@ -12,14 +12,14 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
-    if(this.left < 550){
+    if(this.left < 500){
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10      
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
       }      
-    }else if(this.left < 880 && this.clicou_menina){
+    }else if(this.left < 820 && this.clicou_menina){
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10      
       }
