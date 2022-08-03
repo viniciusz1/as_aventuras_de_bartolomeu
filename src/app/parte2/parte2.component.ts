@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
+import { LocalStorageService } from '../local-storage.service';
 @Component({
   selector: 'app-parte2',
   templateUrl: './parte2.component.html',
@@ -10,25 +11,17 @@ export class Parte2Component implements OnInit {
 
   constructor(
     private router: Router,
-    private appService: AppService
+    private appService: AppService,
+    private localStorageService: LocalStorageService
   ) { 
     appService.keydown()
     .subscribe((e) => {
       this.onKeyDown(e);
     })
   }
-  fim = 20;
+  fim = 200;
   
-  repeat() {
-    if (this.fim < 0) return;
-    var meuInterval = setInterval(() => {
-      this.fim--;
-      if (this.fim <= 0) {
-        clearInterval(meuInterval);
-      }
-    }, 1000);
-  }
-
+  
 
 
   left = 0;
@@ -71,11 +64,19 @@ export class Parte2Component implements OnInit {
     this.repeat();
   }
 
+  repeat() {
+    setInterval(() => {
+      this.fim--;
+    }, 100);
+}
+
+
   ClickDragao() {
     if (this.vida > 0) {
       this.vida = this.vida - 1;
     } else {
       this.ganhou = 1;
+      console.log(this.localStorageService.set('nivel-2', 20 - (this.fim/10)))
       setTimeout(() => {
         // this.router.navigate(['/']);
       }, 10000)

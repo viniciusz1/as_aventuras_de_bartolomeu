@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-parte3',
@@ -9,7 +10,8 @@ import { AppService } from '../app.service';
 })
 export class Parte3Component implements OnInit {
   constructor(private router: Router,
-    private appService: AppService) {
+    private appService: AppService,
+    private localStorageService: LocalStorageService) {
     appService.keydown()
     .subscribe((e) => {
       this.onKeyDown(e);
@@ -17,8 +19,7 @@ export class Parte3Component implements OnInit {
   }
 
   ganhou = 0;
-  vida = 120;
-  fim = 20;
+  vida = 20;
 
   //Arrumar timer para verificar se o jogador ganhou
 
@@ -37,20 +38,17 @@ export class Parte3Component implements OnInit {
         this.router.navigate(['/']);
       }, 5000);
     }, 20000);
-
-    // this.personagem = document.getElementsByClassName('personagem').item
+    this.repeat()
   }
 
+  
+
+  fim = 200;
   repeat() {
-    if (this.fim < 0) return;
-    else {
-      var meuInterval = setInterval(() => {
-        this.fim--;
-        if (this.fim <= 0) {
-          clearInterval(meuInterval);
-        }
-      }, 1000);
-    }
+    setInterval(() => {
+      this.fim--;
+      console.log(this.fim)
+    }, 100);
   }
 
   ClickDragao() {
@@ -58,9 +56,11 @@ export class Parte3Component implements OnInit {
       this.vida = this.vida - 1;
     } else {
       this.ganhou = 1;
+      this.localStorageService.set('nivel-3', 20 - (this.fim/10))
+      this.localStorageService.setRanking()
       setTimeout(() => {
-        this.router.navigate(['/']);
-      }, 10000);
+        // this.router.navigate(['/']);
+      }, 10000)
     }
   }
 
