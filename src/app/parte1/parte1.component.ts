@@ -59,6 +59,8 @@ export class Parte1Component implements OnInit {
 
   ignorar() {
     this.clicou_cachorro = true
+    this.alimentou = false
+    this.local.set("alimentou", this.alimentou)
   }
 
 }
