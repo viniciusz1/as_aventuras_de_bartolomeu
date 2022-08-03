@@ -44,6 +44,7 @@ export class Parte3Component implements OnInit {
   }
 
   ClickDragao() {
+    console.log(this.vida)
     let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
       if (alimentou != null) {
@@ -52,54 +53,23 @@ export class Parte3Component implements OnInit {
         this.vida = this.vida - 1;
       }
       if (this.vida <= 0) {
-        this.ganhou = 1;
-      this.localStorageService.set('nivel-2', 20 - (this.fim/10))
-      this.localStorageService.setRanking()
-      Swal.fire({
-        title: 'VOCÊ GANHOU! PARABÉNS!!',
-        width: 600,
-        padding: '3em',
-        color: '#FFF',
-        background: 'transparent',
-        confirmButtonText: "Voltar",
-        confirmButtonColor: "green"
-      }).then(
-        (e) => {
-          if(e){
-            this.router.navigate(['/'])
-          }
-        }
-      )
-      }
-    } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))
       this.localStorageService.setRanking()
-      this.modalWin();
+      this.modalWin()
+      }
     }
+
   }
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
-    if(this.left < 800){
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
       }
-    }else{
-      if(this.vida == 0)
-        if(tecla.key == 'ArrowRight'){
-          this.left = this.left + 10
-        }
-        if(tecla.key == 'ArrowLeft'){
-          this.left = this.left - 10
-        }
-        if(this.left > 1150){
-          this.router.navigate(['/nivel-3'])
-      }
-    }
   }
 
   modalWin(){
@@ -110,7 +80,8 @@ export class Parte3Component implements OnInit {
       color: '#FFF',
       background: 'transparent',
       confirmButtonText: "Voltar",
-      confirmButtonColor: "green"
+      confirmButtonColor: "green",
+      allowOutsideClick:false
     }).then(
       (e) => {
         if(e){
