@@ -33,15 +33,29 @@ export class Parte2Component implements OnInit {
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
-    if(tecla.key == 'ArrowRight'){
-      this.left = this.left + 10      
+    if(this.left < 800){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10      
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+      }
+    }else{
+      if(this.vida == 0)
+        if(tecla.key == 'ArrowRight'){
+          this.left = this.left + 10      
+        }
+        if(tecla.key == 'ArrowLeft'){
+          this.left = this.left - 10
+        }
+        if(this.left > 1150){
+          this.router.navigate(['/nivel-3'])
+      }
+      
     }
-    if(tecla.key == 'ArrowLeft'){
-      this.left = this.left - 10
-    }
-    if(this.left > 1150){
-      this.router.navigate(['/nivel-3'])
-    }
+    
+
+    
   }
 
   vida = 50;
@@ -54,7 +68,7 @@ export class Parte2Component implements OnInit {
       } else {
         this.ganhou = 2
       setTimeout(() => {
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       },5000)
       }
     }, 20000)
@@ -67,7 +81,7 @@ export class Parte2Component implements OnInit {
     } else {
       this.ganhou = 1;
       setTimeout(() => {
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }, 10000)
     }
   }
