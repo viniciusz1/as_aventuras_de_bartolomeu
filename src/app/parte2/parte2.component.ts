@@ -57,7 +57,7 @@ export class Parte2Component implements OnInit {
       } else {
         this.ganhou = 2
       setTimeout(() => {
-        // this.router.navigate(['/']);
+        this.router.navigate(['/']);
       },5000)
       }
     }, 20000)
@@ -72,14 +72,16 @@ export class Parte2Component implements OnInit {
 
 
   ClickDragao() {
+    let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
-      this.vida = this.vida - 1;
+      if (alimentou != null) {
+        this.vida = this.vida - 2;
+      } else {
+        this.vida = this.vida - 1;
+      }
     } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-1', 20 - (this.fim/10))
-      setTimeout(() => {
-        // this.router.navigate(['/']);
-      }, 10000)
     }
   }
 

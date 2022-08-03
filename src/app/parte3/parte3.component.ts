@@ -21,13 +21,7 @@ export class Parte3Component implements OnInit {
   ganhou = 0;
   vida = 5;
 
-  //Arrumar timer para verificar se o jogador ganhou
-
-
-
-
   ngOnInit(): void {
-    // this.repeat();
     setTimeout(() => {
       if (this.vida == 0) {
         this.ganhou = 1;
@@ -41,8 +35,6 @@ export class Parte3Component implements OnInit {
     this.repeat()
   }
 
-  
-
   fim = 200;
   repeat() {
     setInterval(() => {
@@ -51,15 +43,17 @@ export class Parte3Component implements OnInit {
   }
 
   ClickDragao() {
+    let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
-      this.vida = this.vida - 1;
+      if (alimentou != null) {
+        this.vida = this.vida - 2;
+      } else {
+        this.vida = this.vida - 1;
+      }
     } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))
       this.localStorageService.setRanking()
-      setTimeout(() => {
-        // this.router.navigate(['/']);
-      }, 10000)
     }
   }
 
