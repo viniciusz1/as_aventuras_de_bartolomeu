@@ -11,9 +11,12 @@ export class Parte3Component implements OnInit {
 
   ganhou = 0;
   vida = 120;
+  fim = 20;
+
+  //Arrumar timer para verificar se o jogador ganhou
 
   ngOnInit(): void {
-    this.repeat();
+    // this.repeat();
     setTimeout(() => {
       if (this.vida == 0) {
         this.ganhou = 1;
@@ -26,6 +29,18 @@ export class Parte3Component implements OnInit {
     }, 20000);
   }
 
+  repeat() {
+    if (this.fim < 0) return;
+    else {
+      var meuInterval = setInterval(() => {
+        this.fim--;
+        if (this.fim <= 0) {
+          clearInterval(meuInterval);
+        }
+      }, 1000);
+    }
+  }
+
   ClickDragao() {
     if (this.vida > 0) {
       this.vida = this.vida - 1;
@@ -35,16 +50,5 @@ export class Parte3Component implements OnInit {
         this.router.navigate(['/']);
       }, 10000);
     }
-  }
-
-  fim = 20;
-  repeat() {
-    if (this.fim < 0) return;
-    var meuInterval = setInterval(() => {
-      this.fim--;
-      if (this.fim <= 0) {
-        clearInterval(meuInterval);
-      }
-    }, 1000);
   }
 }
