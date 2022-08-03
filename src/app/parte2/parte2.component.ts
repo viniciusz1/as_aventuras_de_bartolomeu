@@ -36,15 +36,16 @@ export class Parte2Component implements OnInit {
         this.left = this.left - 10
       }
     } else {
-      if (this.vida == 0)
+      if (this.vida <= 0) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
         }
-      if (tecla.key == 'ArrowLeft') {
-        this.left = this.left - 10
-      }
-      if (this.left > 1150) {
-        this.router.navigate(['/nivel-3'])
+        if (tecla.key == 'ArrowLeft') {
+          this.left = this.left - 10
+        }
+        if (this.left > 1150) {
+          this.router.navigate(['/nivel-3'])
+        }
       }
     }
   }
@@ -73,12 +74,24 @@ export class Parte2Component implements OnInit {
 
 
   ClickDragao() {
-    if (this.vida >= 0) {
-      this.vida = this.vida - 1;
+
+    let alimentou = this.localStorageService.get("alimentou")
+
+    if (this.vida > 0) {
+      if (alimentou != null) {
+        this.vida = this.vida - 2;
+      } else {
+        this.vida = this.vida - 1;
+      }
+
+      if (this.vida <= 0) {
+        this.ganhou = 1;
+        this.localStorageService.set('nivel-1', 20 - (this.fim / 10))
+      }
+
     } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-1', 20 - (this.fim / 10))
-
     }
   }
 

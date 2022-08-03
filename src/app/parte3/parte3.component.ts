@@ -35,8 +35,6 @@ export class Parte3Component implements OnInit {
     this.repeat()
   }
 
-  
-
   fim = 200;
 
   repeat() {
@@ -46,8 +44,33 @@ export class Parte3Component implements OnInit {
   }
 
   ClickDragao() {
+    let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
-      this.vida = this.vida - 1;
+      if (alimentou != null) {
+        this.vida = this.vida - 2;
+      } else {
+        this.vida = this.vida - 1;
+      }
+      if (this.vida <= 0) {
+        this.ganhou = 1;
+      this.localStorageService.set('nivel-2', 20 - (this.fim/10))
+      this.localStorageService.setRanking()
+      Swal.fire({
+        title: 'VOCÊ GANHOU! PARABÉNS!!',
+        width: 600,
+        padding: '3em',
+        color: '#FFF',
+        background: 'transparent',
+        confirmButtonText: "Voltar",
+        confirmButtonColor: "green"
+      }).then(
+        (e) => {
+          if(e){
+            this.router.navigate(['/'])
+          }
+        }
+      )
+      }
     } else {
       this.ganhou = 1;
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))

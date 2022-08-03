@@ -41,8 +41,14 @@
 
 #caverna {
     bottom: 80px;
-    position: absolute;
-    margin-left: 55rem;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    position: fixed;
+    /* margin-left: 55rem; */
+    /* left: 620px; */
 }
 
 #imgCaverna {
@@ -50,11 +56,12 @@
 }
 
 #chao {
+    width: 100%;
     display: flex;
     bottom: 0;
     margin-bottom: -5px;
     position: absolute;
-    
+
 }
 
 .terra {
