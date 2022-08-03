@@ -19,7 +19,6 @@
 
 #containerDragao {
     position: absolute;
-    overflow: hidden;
     width: 20%;
     bottom: 80px;
     right: 200px;
@@ -37,7 +36,11 @@
     right: 30px;
 }
 
-h1 {
+h1,h2 {
     color: white;
     text-shadow: 3px 2px black;
+}
+
+h2 {
+    margin-left: 150px;
 }
