@@ -37,9 +37,9 @@ export class Parte1Component implements OnInit, OnDestroy {
     })
   }
 
-  clicou_menina = false
-  clicou_cachorro = false
-  alimentou = false
+  clicou_menina = false;
+  clicou_cachorro = false;
+  alimentou = false;
 
   ngOnInit(): void {
     this.local.set("alimentou", this.alimentou)
