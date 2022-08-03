@@ -49,6 +49,7 @@
 }
 
 #chao {
+    width: 100%;
     display: flex;
     bottom: 0;
     margin-bottom: -5px;
