@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
 import { LocalStorageService } from '../local-storage.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-parte2',
   templateUrl: './parte2.component.html',
@@ -19,8 +21,8 @@ export class Parte2Component implements OnInit {
       this.onKeyDown(e);
     })
   }
+
   fim = 200;
-  
   
 
 
@@ -56,16 +58,30 @@ export class Parte2Component implements OnInit {
         this.ganhou = 1
       } else {
         this.ganhou = 2
-      setTimeout(() => {
-        // this.router.navigate(['/']);
-      },5000)
+        Swal.fire({
+          title: 'GAME OVER!',
+          width: 600,
+          padding: '3em',
+          color: '#FFF',
+          background: 'transparent',
+          confirmButtonText: "Voltar",
+          confirmButtonColor: "#9f1b1b"
+        }).then(
+          (e) => {
+            if(e){
+              this.router.navigate(['/'])
+            }
+          }
+        )
       }
     }, 20000)
     this.repeat();
   }
+  timerTela = 200
 
   repeat() {
     setInterval(() => {
+      this.timerTela = this.fim/10
       this.fim--;
     }, 100);
 }

@@ -5,6 +5,13 @@
     <div *ngIf="ganhou == 2" id="containerTexto">
         <h1>VOCÊ PERDEU!</h1>
     </div>
+    <div *ngIf="ganhou == 0" id="containerTexto">
+        <div>
+            <h1>
+                    {{timerTela | number}}
+            </h1>
+        </div>
+    </div>
     <div *ngIf="ganhou != 1" id="pedra">
         <img src="../../assets/pedraNova2.png" alt="pedra">
     </div>
