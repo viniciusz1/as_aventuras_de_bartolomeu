@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AppService } from '../app.service';
 import { LocalStorageService } from '../local-storage.service';
 import Swal from 'sweetalert2';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-parte2',
@@ -11,16 +12,23 @@ import Swal from 'sweetalert2';
 })
 export class Parte2Component implements OnInit {
 
+  tela = true
   constructor(
     private router: Router,
     private appService: AppService,
     private localStorageService: LocalStorageService
   ) {
-    appService.keydown()
+    if(this.tela){
+      appService.keydown()
       .subscribe((e) => {
         this.onKeyDown(e);
       })
+    }   
+
   }
+  // ngOnDestroy(): void {
+  //   this.tela=false
+  // }
 
   fim = 200;
 
@@ -28,28 +36,31 @@ export class Parte2Component implements OnInit {
 
   left = 0;
   onKeyDown(tecla: KeyboardEvent) {
-    if (this.left < 800) {
-      if (tecla.key == 'ArrowRight') {
-        this.left = this.left + 10
-      }
-      if (tecla.key == 'ArrowLeft') {
-        this.left = this.left - 10
-      }
-    } else {
-      if (this.vida <= 0) {
+    if(this.tela){
+      if (this.left < 800) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
         }
         if (tecla.key == 'ArrowLeft') {
           this.left = this.left - 10
         }
-        if (this.left > 1150) {
-          console.log('p2')
-          this.router.navigate(['/nivel-3'])
-          // this.left = -1000000000
+      } else {
+        if (this.vida <= 0) {
+          if (tecla.key == 'ArrowRight') {
+            this.left = this.left + 10
+          }
+          if (tecla.key == 'ArrowLeft') {
+            this.left = this.left - 10
+          }
+          if (this.left > 1150) {
+            console.log('p2')
+            this.router.navigate(['/nivel-3'])
+            // this.left = -1000000000
+          }
         }
       }
     }
+    
   }
 
   vida = 5;
