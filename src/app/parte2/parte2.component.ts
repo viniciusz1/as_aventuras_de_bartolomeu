@@ -17,7 +17,20 @@ export class Parte2Component implements OnInit {
       this.onKeyDown(e);
     })
   }
+  fim = 20;
   
+  repeat() {
+    if (this.fim < 0) return;
+    var meuInterval = setInterval(() => {
+      this.fim--;
+      if (this.fim <= 0) {
+        clearInterval(meuInterval);
+      }
+    }, 1000);
+  }
+
+
+
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
     if(tecla.key == 'ArrowRight'){
@@ -27,7 +40,7 @@ export class Parte2Component implements OnInit {
       this.left = this.left - 10
     }
     if(this.left > 1150){
-      this.router.navigate(['/nivel-2'])
+      this.router.navigate(['/nivel-3'])
     }
   }
 
@@ -46,7 +59,7 @@ export class Parte2Component implements OnInit {
         this.router.navigate(['/']);
       },5000)
     }, 20000)
-    
+    this.repeat();
   }
 
   ClickDragao() {
