@@ -1,3 +1,16 @@
 <app-cenario2></app-cenario2>
-
+<div id="geral">
+    <div *ngIf="ganhou == 1" id="containerTexto">
+    </div>
+    <div *ngIf="ganhou == 2" id="containerTexto">
+        <h1>VOCÊ PERDEU!</h1>
+    </div>
+    <div *ngIf="ganhou != 1" id="pedra">
+        <img src="../../assets/pedraNova2.png" alt="pedra">
+    </div>
+    <div id="containerDragao">
+        <h1>{{vida}}</h1>
+        <img (click)="ClickDragao()" src="../../assets/inimigoSecundario (1).png" id="imgDragao" alt="Dragao" />
+    </div>
+</div>
 <img [style.left.px]="left" src="../../assets/Personagem.png" class="position-absolute personagem" alt="">

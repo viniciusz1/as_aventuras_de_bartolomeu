@@ -20,20 +20,10 @@
 #containerDragao {
     position: absolute;
     overflow: hidden;
-    width: 30%;
-    bottom: 50px;
-    right: 50px;
-    animation: mexer 5s infinite alternate;
+    width: 20%;
+    bottom: 80px;
+    right: 200px;
 }
-
-@keyframes mexer {
-    0% {
-        right: 50px;
-    } 
-    100% {
-        right: 800px;
-    }
-  }
 
 #imgDragao {
     width: 100%;
@@ -41,8 +31,14 @@
     cursor: pointer;
 }
 
+#pedra {
+    position: absolute;
+    bottom: 65px;
+    right: 30px;
+}
+
 h1 {
     color: white;
     text-shadow: 3px 2px black;
-    margin-left: 80px;
+    margin-left: 140px;
 }

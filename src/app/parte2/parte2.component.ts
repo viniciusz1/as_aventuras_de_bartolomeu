@@ -44,9 +44,8 @@ export class Parte2Component implements OnInit {
     }
   }
 
-  vida = 120;
+  vida = 50;
   ganhou = 0;
-  tempo = 0;
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -54,10 +53,10 @@ export class Parte2Component implements OnInit {
         this.ganhou = 1
       } else {
         this.ganhou = 2
-      }
       setTimeout(() => {
         this.router.navigate(['/']);
       },5000)
+      }
     }, 20000)
     this.repeat();
   }
