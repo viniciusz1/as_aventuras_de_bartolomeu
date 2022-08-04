@@ -22,7 +22,7 @@ export class Parte3Component implements OnInit {
   }
   tela = true
   ganhou = 0;
-  vida = 5;
+  vida = 120;
   cachorro = false;
   // ngOnDestroy(): void {
   //   this.tela=false

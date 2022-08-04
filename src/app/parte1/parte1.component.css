@@ -31,6 +31,13 @@
     transform: scaleX(-1);
 }
 
+#lapide {
+    width: 120px;
+    position: absolute;
+    bottom: 68px;
+    left: 960px;
+}
+
 .mensagem-cachorro{
     position: absolute;
     background-color: white;

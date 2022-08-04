@@ -63,7 +63,7 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   clicou_menina = false;
   clicou_cachorro = false;
-  alimentou = false;
+  alimentou = 0;
 
   ngOnInit(): void {
     this.local.set("alimentou", this.alimentou)
@@ -81,14 +81,14 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   alimentar() {
     this.clicou_cachorro = true
-    this.alimentou = true
+    this.alimentou = 1
     this.local.set("alimentou", this.alimentou)
       
   }
 
   ignorar() {
     this.clicou_cachorro = true
-    this.alimentou = false
+    this.alimentou = 2
     this.local.set("alimentou", this.alimentou)
   }
 
