@@ -76,13 +76,16 @@ export class Parte3Component implements OnInit {
   }
 
   left = 0;
+  lado = ''
   onKeyDown(tecla: KeyboardEvent){
 
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10
+        this.lado = 'scaleX(1)'  
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
+        this.lado = 'scaleX(-1)'  
       }
       if(this.left >= 1050){
         this.modalWin()

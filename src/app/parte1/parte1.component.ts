@@ -10,28 +10,35 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class Parte1Component implements OnInit, OnDestroy {
 
-  left = 0;
+  left = 0; 
+  lado = ''  
   onKeyDown(tecla: KeyboardEvent){
     if(this.left < 500){
       if(tecla.key == 'ArrowRight'){
-        this.left = this.left + 10      
+        this.left = this.left + 10    
+        this.lado = 'scaleX(1)'  
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
+        this.lado = 'scaleX(-1)'
       }      
     }else if(this.left < 820 && this.clicou_menina){
       if(tecla.key == 'ArrowRight'){
-        this.left = this.left + 10      
+        this.left = this.left + 10  
+        this.lado = 'scaleX(1)'    
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
+        this.lado = 'scaleX(-1)'
       }
     }else if(this.left > 800 && this.clicou_cachorro){
       if(tecla.key == 'ArrowRight'){
-        this.left = this.left + 10      
+        this.left = this.left + 10  
+        this.lado = 'scaleX(1)'    
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
+        this.lado = 'scaleX(-1)'
       }
     }
 

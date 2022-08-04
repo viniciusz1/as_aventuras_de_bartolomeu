@@ -17,6 +17,12 @@
     justify-content:center ;
     font-family: Arial, Helvetica, sans-serif;
 }
+.esquerda{
+    transform: scaleX(-1);
+}
+.direita{
+    transform: scaleX(1);
+}
 
 #dog{
     width: 50px;
