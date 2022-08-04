@@ -63,7 +63,7 @@ export class Parte2Component implements OnInit {
     
   }
 
-  vida = 5;
+  vida = 50;
   ganhou = 0;
   cachorro = false;
   ngOnInit(): void {
