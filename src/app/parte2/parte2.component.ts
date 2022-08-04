@@ -65,16 +65,15 @@ export class Parte2Component implements OnInit {
 
   vida = 50;
   ganhou = 0;
-
-  
-  
-
+  cachorro = false;
   ngOnInit(): void {
     setTimeout(() => {
       if (this.ganhou != 1) {
         this.modalGameOver();
       }
     }, 20000)
+    this.cachorro = this.localStorageService.get('alimentou')
+    console.log(this.cachorro)
     this.repeat();
   }
 

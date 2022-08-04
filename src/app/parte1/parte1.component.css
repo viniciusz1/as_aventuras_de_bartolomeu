@@ -21,11 +21,11 @@
   }
 
 #dog-esq{
-width: 50px;
-position: absolute;
-bottom: 90px;
-left: 995px;
-transform: scaleX(-1);
+    width: 50px;
+    position: absolute;
+    bottom: 90px;
+    left: 995px;
+    transform: scaleX(-1);
 }
 
 .mensagem-cachorro{
