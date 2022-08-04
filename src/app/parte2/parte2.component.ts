@@ -103,6 +103,8 @@ export class Parte2Component implements OnInit {
       if (this.vida <= 0) {
         this.ganhou = 1;
         this.localStorageService.set('nivel-1', 20 - (this.fim / 10))
+        var mexer = document.getElementById("principal");
+        mexer?.classList.add("tremida")
       }
 
     } else {

@@ -63,6 +63,8 @@ export class Parte3Component implements OnInit {
       }
       if (this.vida <= 0) {
       this.ganhou = 1;
+      var mexer = document.getElementById("principal");
+        mexer?.classList.add("tremida")
       this.localStorageService.set('nivel-2', 20 - (this.fim/10))
       this.localStorageService.setRanking()
       this.modalWin()

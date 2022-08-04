@@ -76,6 +76,7 @@ export class Parte1Component implements OnInit, OnDestroy {
     this.clicou_cachorro = true
     this.alimentou = true
     this.local.set("alimentou", this.alimentou)
+      
   }
 
   ignorar() {
