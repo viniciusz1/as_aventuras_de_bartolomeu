@@ -23,7 +23,7 @@ export class Parte3Component implements OnInit {
   tela = true
   ganhou = 0;
   vida = 120;
-
+  cachorro = false;
   // ngOnDestroy(): void {
   //   this.tela=false
   // }
@@ -39,6 +39,8 @@ export class Parte3Component implements OnInit {
       }
     }, 20000);
     this.repeat()
+    this.cachorro = this.localStorageService.get('alimentou')
+
   }
 
   fim = 200;
