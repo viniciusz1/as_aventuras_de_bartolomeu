@@ -22,7 +22,7 @@ export class Parte3Component implements OnInit {
   }
   tela = true
   ganhou = 0;
-  vida = 120;
+  vida = 5;
   cachorro = false;
   // ngOnDestroy(): void {
   //   this.tela=false
@@ -53,7 +53,7 @@ export class Parte3Component implements OnInit {
       this.fim--;
     }, 100)
   }
-
+  coroa = false
   ClickDragao() {
     console.log(this.vida)
     let alimentou = this.localStorageService.get("alimentou")
@@ -64,12 +64,12 @@ export class Parte3Component implements OnInit {
         this.vida = this.vida - 1;
       }
       if (this.vida <= 0) {
-      this.ganhou = 1;
-      var mexer = document.getElementById("principal");
+        this.ganhou = 1;
+        var mexer = document.getElementById("principal");
         mexer?.classList.add("tremida")
-      this.localStorageService.set('nivel-2', 20 - (this.fim/10))
-      this.localStorageService.setRanking()
-      this.modalWin()
+        this.localStorageService.set('nivel-2', 20 - (this.fim/10))
+        this.localStorageService.setRanking()
+        this.coroa = true
       }
     }
 
@@ -78,14 +78,15 @@ export class Parte3Component implements OnInit {
   left = 0;
   onKeyDown(tecla: KeyboardEvent){
 
-    if(this.tela){
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
       }
-    }
+      if(this.left >= 1050){
+        this.modalWin()
+      }
 
       
   }

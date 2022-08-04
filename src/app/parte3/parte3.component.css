@@ -24,6 +24,14 @@
     left: 995px;
     z-index: 1;
 }
+#coroa {
+    width: 50px;
+    position: absolute;
+    bottom: 90px;
+    left: 1150px;
+    z-index: 1;
+}
+
 
 #containerDragao {
     position: absolute;
