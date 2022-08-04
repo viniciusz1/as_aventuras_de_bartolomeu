@@ -13,6 +13,14 @@ export class AppService {
             this.$subject.next(e);
         })
     }
+    
+    // public setcachorro(decisao: boolean){
+    //     return
+    // }
+
+    public getcachorro(){
+
+    }
 
     public keydown(): Observable<KeyboardEvent> {
         return this.$subject.asObservable();
