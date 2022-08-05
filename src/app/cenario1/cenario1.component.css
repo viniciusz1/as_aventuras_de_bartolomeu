@@ -15,6 +15,14 @@
     overflow: hidden;
 }
 
+#coruja {
+    position: absolute;
+    z-index: 3;
+    width: 5%;
+    bottom: 30%;
+    left: 15%;
+}
+
 #Arvore2 {
     margin-left: -15rem;
 }

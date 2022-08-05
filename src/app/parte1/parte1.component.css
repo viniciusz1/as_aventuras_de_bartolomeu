@@ -1,6 +1,6 @@
 .personagem{
-    width: 220px;
-    bottom: 50px;
+    width: 170px;
+    bottom: 80px;
     z-index: 2;
 }
 .mensagem{
@@ -16,7 +16,7 @@
     z-index: 3;
 }
 #dog{
-    width: 50px;
+    width: 60px;
     position: absolute;
     bottom: 90px;
     left: 995px;
@@ -24,7 +24,7 @@
   }
 
 #dog-esq{
-    width: 50px;
+    width: 60px;
     position: absolute;
     bottom: 90px;
     left: 995px;

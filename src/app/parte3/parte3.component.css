@@ -4,8 +4,9 @@
     overflow: hidden;
 }
 .personagem{
-    width: 220px;
-    bottom: 50px;
+    width: 170px;
+    bottom: 80px;
+    z-index: 2;
 }
 #containerTexto {
     width: 100%;
@@ -17,13 +18,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#dog {
-    width: 50px;
+#dog{
+    width: 60px;
     position: absolute;
     bottom: 90px;
     left: 995px;
     z-index: 1;
-}
+  }
 #coroa {
     width: 50px;
     position: absolute;
