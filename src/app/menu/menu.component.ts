@@ -12,9 +12,10 @@ export class MenuComponent implements OnInit {
   constructor(private router: Router,
   private localStorageService: LocalStorageService) { }
   ranking: {nivel1: number, nivel2: number, total: number, jogador: string}[] = []
-
   nick=""
   tempo = 0
+  alimentou = false;
+
   entrar(){
     if(this.nick){
       this.localStorageService.set('jogador', this.nick)
@@ -24,9 +25,13 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  alimentou = false;
-
   ngOnInit(): void {
+  //   if(this.localStorageService.get('recarga') == true){
+  //     this.localStorageService.set('recarga', false)
+  //     location.reload()
+  //   }
+  //   this.localStorageService.set('recarga', true)
+
     this.localStorageService.set("alimentou", this.alimentou)
     this.ranking = this.localStorageService.get('ranking')
     console.log(this.ranking)

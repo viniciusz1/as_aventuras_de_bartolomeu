@@ -10,14 +10,38 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class Parte1Component implements OnInit, OnDestroy {
 
-  left = 0;
+  left = 0; 
+  lado = ''  
   onKeyDown(tecla: KeyboardEvent){
-    if(tecla.key == 'ArrowRight'){
-      this.left = this.left + 10      
+    if(this.left < 500){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10    
+        this.lado = 'scaleX(1)'  
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+        this.lado = 'scaleX(-1)'
+      }      
+    }else if(this.left < 820 && this.clicou_menina){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10  
+        this.lado = 'scaleX(1)'    
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+        this.lado = 'scaleX(-1)'
+      }
+    }else if(this.left > 800 && this.clicou_cachorro){
+      if(tecla.key == 'ArrowRight'){
+        this.left = this.left + 10  
+        this.lado = 'scaleX(1)'    
+      }
+      if(tecla.key == 'ArrowLeft'){
+        this.left = this.left - 10
+        this.lado = 'scaleX(-1)'
+      }
     }
-    if(tecla.key == 'ArrowLeft'){
-      this.left = this.left - 10
-    }
+
     if(this.left > 1150){
       this.router.navigate(['/nivel-2'])
     }
@@ -37,9 +61,9 @@ export class Parte1Component implements OnInit, OnDestroy {
     })
   }
 
-  clicou_menina = false
-  clicou_cachorro = false
-  alimentou = false
+  clicou_menina = false;
+  clicou_cachorro = false;
+  alimentou = 0;
 
   ngOnInit(): void {
     this.local.set("alimentou", this.alimentou)
@@ -57,13 +81,14 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   alimentar() {
     this.clicou_cachorro = true
-    this.alimentou = true
+    this.alimentou = 1
     this.local.set("alimentou", this.alimentou)
+      
   }
 
   ignorar() {
     this.clicou_cachorro = true
-    this.alimentou = false
+    this.alimentou = 2
     this.local.set("alimentou", this.alimentou)
   }
 

@@ -7,9 +7,17 @@
             </h1>
         </div>
     </div>
+    <img draggable="false" src="../../assets/Morcego.png" id="imgMorcego" alt="Morcego" />
+    <img draggable="false" src="../../assets/Morcego.png" id="imgMorcego1" alt="Morcego" />
+    <img draggable="false" src="../../assets/Morcego.png" id="imgMorcego2" alt="Morcego" />
+    <img draggable="false" src="../../assets/Morcego.png" id="imgMorcego3" alt="Morcego" />
+    <img draggable="false" src="../../assets/Morcego.png" id="imgMorcego4" alt="Morcego" />
+    <img draggable="false" src="../../assets/Morcego.png" id="imgMorcego5" alt="Morcego" />
     <div *ngIf="ganhou != 1" id="containerDragao">
         <h1>{{vida}}</h1>
-        <img (click)="ClickDragao()" src="../../assets/Dragao.png" id="imgDragao" alt="Dragao" />
+        <img draggable="false" (click)="ClickDragao()" src="../../assets/Dragao.png" id="imgDragao" alt="Dragao" />
     </div>
 </div>
-<img [style.left.px]="left" src="../../assets/Personagem.png" class="position-absolute personagem" alt="">
+<img [style.transform]="lado" *ngIf="cachorro == true" [style.left.px]="left - 50" id="dog" src="../../assets/cachorro.png" alt="dog">
+<img *ngIf="coroa" src="../../assets/Coroa.png" id="coroa" alt="">
+<img [style.transform]="lado" [style.left.px]="left" draggable="false" src="../../assets/Personagem.png" id ="principal" class="position-absolute personagem" alt="">

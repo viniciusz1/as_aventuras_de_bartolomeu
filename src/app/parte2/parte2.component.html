@@ -8,11 +8,17 @@
         </div>
     </div>
     <div *ngIf="ganhou != 1" id="pedra">
-        <img src="../../assets/pedraNova2.png" alt="pedra">
+        <img draggable="false" src="../../assets/pedraNova2.png" alt="pedra">
     </div>
     <div *ngIf="ganhou != 1" id="containerDragao">
         <h2>{{vida}}</h2>
-        <img (click)="ClickDragao()" src="../../assets/inimigoSecundario (1).png" id="imgDragao" alt="Dragao" />
+        <img (click)="ClickDragao()" draggable="false" src="../../assets/inimigoSecundario (1).png" id="imgDragao" alt="Dragao" />
     </div>
 </div>
-<img [style.left.px]="left" src="../../assets/Personagem.png" class="position-absolute personagem" alt="">
+
+<img [style.transform]="lado" *ngIf="cachorro == true" [style.left.px]="left - 50" id="dog" src="../../assets/cachorro.png" alt="dog">
+<!-- *ngIf="cachorro == true"  -->
+
+<img [style.left.px]="left" [style.transform]="lado" draggable="false" src="../../assets/Personagem.png"
+id="principal" class="position-absolute personagem" alt="">
+

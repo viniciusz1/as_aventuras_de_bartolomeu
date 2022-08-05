@@ -31,26 +31,31 @@ export class Parte2Component implements OnInit {
   // }
 
   fim = 200;
-
-  
-
   left = 0;
+  lado = 'scaleX(1)'
+
   onKeyDown(tecla: KeyboardEvent) {
+    var personagem = document.getElementById("principal");
     if(this.tela){
       if (this.left < 800) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
+          this.lado = 'scaleX(1)'
         }
         if (tecla.key == 'ArrowLeft') {
+          personagem?.classList.add("esquerda")
           this.left = this.left - 10
+          this.lado = 'scaleX(-1)'
         }
       } else {
         if (this.vida <= 0) {
           if (tecla.key == 'ArrowRight') {
             this.left = this.left + 10
+            this.lado = 'scaleX(1)'
           }
           if (tecla.key == 'ArrowLeft') {
             this.left = this.left - 10
+            this.lado = 'scaleX(-1)'
           }
           if (this.left > 1150) {
             console.log('p2')
@@ -63,18 +68,17 @@ export class Parte2Component implements OnInit {
     
   }
 
-  vida = 5;
+  vida = 50;
   ganhou = 0;
-
-  
-  
-
+  cachorro = false;
   ngOnInit(): void {
     setTimeout(() => {
       if (this.ganhou != 1) {
         this.modalGameOver();
       }
     }, 20000)
+    this.cachorro = this.localStorageService.get('alimentou')
+    console.log(this.cachorro)
     this.repeat();
   }
 
@@ -103,6 +107,8 @@ export class Parte2Component implements OnInit {
       if (this.vida <= 0) {
         this.ganhou = 1;
         this.localStorageService.set('nivel-1', 20 - (this.fim / 10))
+        var mexer = document.getElementById("principal");
+        mexer?.classList.add("tremida")
       }
 
     } else {

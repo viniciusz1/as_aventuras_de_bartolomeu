@@ -1,6 +1,7 @@
 .personagem{
     width: 220px;
     bottom: 50px;
+    z-index: 2;
 }
 .mensagem{
     position: absolute;
@@ -12,7 +13,31 @@
     border: 1px solid black;
     border-radius: 22px 22px 0px 22px;
     padding: 20px;
+    z-index: 3;
 }
+#dog{
+    width: 50px;
+    position: absolute;
+    bottom: 90px;
+    left: 995px;
+    z-index: 1;
+  }
+
+#dog-esq{
+    width: 50px;
+    position: absolute;
+    bottom: 90px;
+    left: 995px;
+    transform: scaleX(-1);
+}
+
+#lapide {
+    width: 120px;
+    position: absolute;
+    bottom: 68px;
+    left: 960px;
+}
+
 .mensagem-cachorro{
     position: absolute;
     background-color: white;
@@ -39,4 +64,3 @@
     justify-content: center;
     align-items: center;
 }
-

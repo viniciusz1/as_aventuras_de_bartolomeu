@@ -17,6 +17,22 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#dog {
+    width: 50px;
+    position: absolute;
+    bottom: 90px;
+    left: 995px;
+    z-index: 1;
+}
+#coroa {
+    width: 50px;
+    position: absolute;
+    bottom: 90px;
+    left: 1150px;
+    z-index: 1;
+}
+
+
 #containerDragao {
     position: absolute;
     overflow: hidden;
@@ -41,8 +57,73 @@
     cursor: pointer;
 }
 
+#imgMorcego {
+    position: absolute;
+    overflow: hidden;
+    width: 4%;
+    bottom: 67%;
+    right: 50px;
+    animation: voar 15s infinite;
+}
+#imgMorcego2 {
+    position: absolute;
+    overflow: hidden;
+    width: 4%;
+    bottom: 72%;
+    right: 10px;
+    animation: voar 15s infinite;
+}
+#imgMorcego3 {
+    position: absolute;
+    overflow: hidden;
+    width: 4%;
+    bottom: 78%;
+    right: 100px;
+    animation: voar 15s infinite;
+}
+#imgMorcego4 {
+    position: absolute;
+    overflow: hidden;
+    width: 4%;
+    bottom: 68%;
+    right: 120px;
+    animation: voar 15s infinite;
+}
+#imgMorcego5 {
+    position: absolute;
+    overflow: hidden;
+    width: 4%;
+    bottom: 75%;
+    right: 200px;
+    animation: voar 15s infinite;
+}
+
+@keyframes voar { 
+    100% {
+        right: 120%;
+    }
+  }
+
 h1 {
     color: white;
     text-shadow: 3px 2px black;
     margin-left: 80px;
+}
+
+.tremida {
+    animation: tremer 1s;
+}
+
+@keyframes tremer {
+    0%{transform: translate(1px,1px) rotate(0deg);}
+    10%{transform: translate(-1px,-2px) rotate(-1deg);}
+    20%{transform: translate(-2px, 0px) rotate(1deg);}
+    30%{transform: translate(2px,2px) rotate(0deg);}
+    40%{transform: translate(1px,-1px) rotate(1deg);}
+    50%{transform: translate(-1px,2px) rotate(-10deg);}
+    60%{transform: translate(-2px,1px) rotate(0deg);}
+    70%{transform: translate(2px,1px) rotate(-1deg);}
+    80%{transform: translate(-1px,-1px) rotate(1deg);}
+    90%{transform: translate(1px,2px) rotate(0deg);}
+    100%{transform: translate(1px,-2px) rotate(-1deg);}
 }
