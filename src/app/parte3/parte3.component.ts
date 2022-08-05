@@ -15,24 +15,28 @@ export class Parte3Component implements OnInit {
   constructor(private router: Router,
     private appService: AppService,
     private localStorageService: LocalStorageService) {
-    appService.keydown()
+    this.sub = appService.keydown()
     .subscribe((e) => {
       this.onKeyDown(e);
     })
   }
+
+
+  sub: Subscription
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
   tela = true
   ganhou = 0;
   vida = 120;
   cachorro = false;
-  // ngOnDestroy(): void {
-  //   this.tela=false
-  // }
 
   ngOnInit(): void {
     setTimeout(() => {
       if (this.vida == 0) {
         this.ganhou = 1;
-        
+
       } else {
         this.ganhou = 2;
         this.modalGameOver();
@@ -81,17 +85,17 @@ export class Parte3Component implements OnInit {
 
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10
-        this.lado = 'scaleX(1)'  
+        this.lado = 'scaleX(1)'
       }
       if(tecla.key == 'ArrowLeft'){
         this.left = this.left - 10
-        this.lado = 'scaleX(-1)'  
+        this.lado = 'scaleX(-1)'
       }
       if(this.left >= 1050){
         this.modalWin()
       }
 
-      
+
   }
 
   modalWin(){

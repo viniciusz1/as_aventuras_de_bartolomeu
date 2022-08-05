@@ -13,22 +13,24 @@ import { Subscription } from 'rxjs';
 export class Parte2Component implements OnInit {
 
   tela = true
+  sub: Subscription = new Subscription();
   constructor(
     private router: Router,
     private appService: AppService,
     private localStorageService: LocalStorageService
   ) {
     if(this.tela){
-      appService.keydown()
+      this.sub = appService.keydown()
       .subscribe((e) => {
         this.onKeyDown(e);
       })
-    }   
+    }
 
   }
-  // ngOnDestroy(): void {
-  //   this.tela=false
-  // }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   fim = 200;
   left = 0;
@@ -65,7 +67,7 @@ export class Parte2Component implements OnInit {
         }
       }
     }
-    
+
   }
 
   vida = 50;
