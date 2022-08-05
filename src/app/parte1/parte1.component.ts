@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef,Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppService } from '../app.service';
@@ -13,38 +13,43 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   left = 0;
   lado = ''
-  onKeyDown(tecla: KeyboardEvent){
-    console.log('p1')
-    if(this.left < 500){
-      if(tecla.key == 'ArrowRight'){
+  paraCachorro = false
+  onKeyDown(tecla: KeyboardEvent) {
+    this.paraCachorro = false
+    setTimeout(() => {
+      this.paraCachorro = true
+    }
+      , 2000)
+    if (this.left < 500) {
+      if (tecla.key == 'ArrowRight') {
         this.left = this.left + 10
         this.lado = 'scaleX(1)'
       }
-      if(tecla.key == 'ArrowLeft'){
+      if (tecla.key == 'ArrowLeft') {
         this.left = this.left - 10
         this.lado = 'scaleX(-1)'
       }
-    }else if(this.left < 820 && this.clicou_menina){
-      if(tecla.key == 'ArrowRight'){
+    } else if (this.left < 820 && this.clicou_menina) {
+      if (tecla.key == 'ArrowRight') {
         this.left = this.left + 10
         this.lado = 'scaleX(1)'
       }
-      if(tecla.key == 'ArrowLeft'){
+      if (tecla.key == 'ArrowLeft') {
         this.left = this.left - 10
         this.lado = 'scaleX(-1)'
       }
-    }else if(this.left > 800 && this.clicou_cachorro){
-      if(tecla.key == 'ArrowRight'){
+    } else if (this.left > 800 && this.clicou_cachorro) {
+      if (tecla.key == 'ArrowRight') {
         this.left = this.left + 10
         this.lado = 'scaleX(1)'
       }
-      if(tecla.key == 'ArrowLeft'){
+      if (tecla.key == 'ArrowLeft') {
         this.left = this.left - 10
         this.lado = 'scaleX(-1)'
       }
     }
 
-    if(this.left > 1150){
+    if (this.left > 1150) {
       this.router.navigate(['/nivel-2'])
     }
   }
@@ -58,9 +63,9 @@ export class Parte1Component implements OnInit, OnDestroy {
     private local: LocalStorageService,
   ) {
     this.sub = appService.keydown()
-    .subscribe((e) => {
-      this.onKeyDown(e);
-    })
+      .subscribe((e) => {
+        this.onKeyDown(e);
+      })
   }
 
   clicou_menina = false;
@@ -69,7 +74,7 @@ export class Parte1Component implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.local.set("alimentou", this.alimentou)
-    this.left=0
+    this.left = 0
   }
 
   sim() {

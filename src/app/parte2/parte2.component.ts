@@ -19,11 +19,11 @@ export class Parte2Component implements OnInit {
     private appService: AppService,
     private localStorageService: LocalStorageService
   ) {
-    if(this.tela){
+    if (this.tela) {
       this.sub = appService.keydown()
-      .subscribe((e) => {
-        this.onKeyDown(e);
-      })
+        .subscribe((e) => {
+          this.onKeyDown(e);
+        })
     }
 
   }
@@ -35,10 +35,16 @@ export class Parte2Component implements OnInit {
   fim = 200;
   left = 0;
   lado = 'scaleX(1)'
-
+  paraCachorro = false;
   onKeyDown(tecla: KeyboardEvent) {
+
     var personagem = document.getElementById("principal");
-    if(this.tela){
+
+    if (this.tela) {
+      this.paraCachorro = false
+      setTimeout(() => {
+        this.paraCachorro = true
+      })
       if (this.left < 800) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
@@ -67,7 +73,6 @@ export class Parte2Component implements OnInit {
         }
       }
     }
-
   }
 
   vida = 50;

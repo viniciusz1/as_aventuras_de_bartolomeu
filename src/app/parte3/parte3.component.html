@@ -18,6 +18,7 @@
         <img draggable="false" (click)="ClickDragao()" src="../../assets/Dragao.png" id="imgDragao" alt="Dragao" />
     </div>
 </div>
-<img [style.transform]="lado" *ngIf="cachorro == true" [style.left.px]="left - 50" id="dog" src="../../assets/cachorro.gif" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
 <img *ngIf="coroa" src="../../assets/Coroa.png" id="coroa" alt="">
 <img [style.transform]="lado" [style.left.px]="left" draggable="false" src="../../assets/PersonagemAnimado.gif" id ="principal" class="position-absolute personagem" alt="">
