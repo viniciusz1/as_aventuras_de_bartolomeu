@@ -36,6 +36,7 @@ export class Parte2Component implements OnInit {
   lado = 'scaleX(1)'
   paraCachorro = false;
   onKeyDown(tecla: KeyboardEvent) {
+    console.log('p2')
     this.paraCachorro = false
       setTimeout(() => {
         this.paraCachorro = true
@@ -76,7 +77,7 @@ export class Parte2Component implements OnInit {
 
   vida = 50;
   ganhou = 0;
-  cachorro = false;
+  cachorro = 2;
   ngOnInit(): void {
     setTimeout(() => {
       if (this.ganhou != 1) {

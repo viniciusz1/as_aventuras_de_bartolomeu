@@ -16,9 +16,9 @@ export class Parte3Component implements OnInit {
     private appService: AppService,
     private localStorageService: LocalStorageService) {
     this.sub = appService.keydown()
-    .subscribe((e) => {
-      this.onKeyDown(e);
-    })
+      .subscribe((e) => {
+        this.onKeyDown(e);
+      })
   }
 
 
@@ -30,16 +30,9 @@ export class Parte3Component implements OnInit {
   tela = true
   ganhou = 0;
   vida = 120;
-  cachorro = false;
+  cachorro = 1;
 
   ngOnInit(): void {
-    setInterval(()=>{
-      let drag = document.getElementById('containerDragao')
-      console.log(drag?.style.right)
-      console.log(drag)
-    },200)
-
-
     setTimeout(() => {
       if (this.vida == 0) {
         this.ganhou = 1;
@@ -51,11 +44,9 @@ export class Parte3Component implements OnInit {
     }, 20000);
     this.repeat()
     this.cachorro = this.localStorageService.get('alimentou')
-
   }
 
   fim = 200;
-
   timerTela = 200
 
   repeat() {
@@ -66,7 +57,6 @@ export class Parte3Component implements OnInit {
   }
   coroa = false
   ClickDragao() {
-    console.log(this.vida)
     let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
       if (alimentou == true) {
@@ -78,7 +68,7 @@ export class Parte3Component implements OnInit {
         this.ganhou = 1;
         var mexer = document.getElementById("principal");
         mexer?.classList.add("tremida")
-        this.localStorageService.set('nivel-2', 20 - (this.fim/10))
+        this.localStorageService.set('nivel-2', 20 - (this.fim / 10))
         this.localStorageService.setRanking()
         this.coroa = true
       }
@@ -89,27 +79,28 @@ export class Parte3Component implements OnInit {
   left = 0;
   lado = ''
   paraCachorro = false;
-  onKeyDown(tecla: KeyboardEvent){
+  onKeyDown(tecla: KeyboardEvent) {
+    console.log('p3')
     this.paraCachorro = false
     setTimeout(() => {
       this.paraCachorro = true
     }, 2000)
-      if(tecla.key == 'ArrowRight'){
-        this.left = this.left + 10
-        this.lado = 'scaleX(1)'
-      }
-      if(tecla.key == 'ArrowLeft'){
-        this.left = this.left - 10
-        this.lado = 'scaleX(-1)'
-      }
-      if(this.left >= 1050){
-        this.modalWin()
-      }
+    if (tecla.key == 'ArrowRight') {
+      this.left = this.left + 10
+      this.lado = 'scaleX(1)'
+    }
+    if (tecla.key == 'ArrowLeft') {
+      this.left = this.left - 10
+      this.lado = 'scaleX(-1)'
+    }
+    if (this.left >= 1050) {
+      this.modalWin()
+    }
 
 
   }
 
-  modalWin(){
+  modalWin() {
     Swal.fire({
       title: 'VOCÊ GANHOU! PARABÉNS!!',
       width: 600,
@@ -118,17 +109,17 @@ export class Parte3Component implements OnInit {
       background: 'transparent',
       confirmButtonText: "Voltar",
       confirmButtonColor: "green",
-      allowOutsideClick:false
+      allowOutsideClick: false
     }).then(
       (e) => {
-        if(e.value == true){
+        if (e.value == true) {
           this.router.navigate(['/'])
         }
       }
     )
   }
 
-  modalGameOver(){
+  modalGameOver() {
     Swal.fire({
       title: 'GAME OVER!',
       width: 600,
@@ -139,7 +130,7 @@ export class Parte3Component implements OnInit {
       confirmButtonColor: "#9f1b1b"
     }).then(
       (e) => {
-        if(e){
+        if (e) {
           this.router.navigate(['/'])
         }
       }

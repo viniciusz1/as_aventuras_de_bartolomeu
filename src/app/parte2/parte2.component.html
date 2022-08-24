@@ -16,8 +16,8 @@
     </div>
 </div>
 
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro == 1  && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro == 1  && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
 
 <img [style.left.px]="left" [style.transform]="lado" draggable="false" src="../../assets/PersonagemAnimado.gif"
 id="principal" class="position-absolute personagem" alt="">
