@@ -8,6 +8,7 @@
               <h1 class="nickname">Insira seu nickname: </h1>
               <input type="text" [(ngModel)]="nick" class="input-name" placeholder="Nickname...">
                 <button class="btn mt-5" (click)="entrar()">Iniciar Game</button>
+                <button class="btn-musica mt-3 btn-sm p-3" (click)="playAudio()">Musica {{estado}}</button>
             </div>
         </div>
         <div class="ranking position-absolute tabela" style="right:10%">

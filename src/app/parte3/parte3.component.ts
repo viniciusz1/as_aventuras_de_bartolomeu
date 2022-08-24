@@ -81,7 +81,7 @@ export class Parte3Component implements OnInit {
 
   }
 
-  
+
   onKeyDown(tecla: KeyboardEvent) {
     this.paraCachorro = false
     setTimeout(() => {
@@ -115,6 +115,8 @@ export class Parte3Component implements OnInit {
     }).then(
       (e) => {
         if (e.value == true) {
+          localStorage.setItem("ESTADO", "OFF");
+          localStorage.setItem("GANHOU", "true");
           this.router.navigate(['/'])
         }
       }
