@@ -1,10 +1,14 @@
 <app-cenario3></app-cenario3>
 <div id="geral">
     <div *ngIf="ganhou == 0" id="containerTexto">
-        <div>
-            <h1>
+        <div style="display: flex;flex-direction:column; align-items: center">
+            <h1 style="margin-left: 0 !important;">
                     {{timerTela | number}}
             </h1>
+            <div class="barra-prin">
+                <div style="background-color: white; height: 100%" [style.width.%]="100- fim/2">
+                </div> 
+            </div>
         </div>
     </div>
     <img draggable="false" src="../../assets/Morcego.gif" id="imgMorcego" alt="Morcego" />
@@ -15,10 +19,14 @@
     <img draggable="false" src="../../assets/Morcego.gif" id="imgMorcego5" alt="Morcego" />
     <div *ngIf="ganhou != 1" id="containerDragao">
         <h1>{{vida}}</h1>
+        <div class="barra-sec">
+            <div style="background-color: red; height: 100%" [style.width.%]="100 - (vida*0.83)">
+            </div>
+        </div>
         <img draggable="false" (click)="ClickDragao()" src="../../assets/Dragao.png" id="imgDragao" alt="Dragao" />
     </div>
 </div>
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro == 1 && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro == 1 && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
 <img *ngIf="coroa" src="../../assets/Coroa.png" id="coroa" alt="">
 <img [style.transform]="lado" [style.left.px]="left" draggable="false" src="../../assets/PersonagemAnimado.gif" id ="principal" class="position-absolute personagem" alt="">

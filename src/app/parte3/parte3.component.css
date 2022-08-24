@@ -17,7 +17,15 @@
     justify-content:center ;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.barra-prin{
+    background-color: red; border: 1px solid black; width: 500px; height: 20px;
+}
+.barra-sec{
+    background-color: #37c537;
+        border: 1px solid black; width: 150px; height: 10px; 
+        position: relative;border: 1px solid black;
+        left: 40px;
+}
 #dog{
     width: 60px;
     position: absolute;

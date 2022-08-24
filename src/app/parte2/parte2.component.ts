@@ -35,16 +35,17 @@ export class Parte2Component implements OnInit {
   left = 0;
   lado = 'scaleX(1)'
   paraCachorro = false;
+  
   onKeyDown(tecla: KeyboardEvent) {
-
-    var personagem = document.getElementById("principal");
-
-    if (this.tela) {
-      this.paraCachorro = false
+    this.paraCachorro = false
       setTimeout(() => {
         this.paraCachorro = true
-      })
-      if (this.left < 800) {
+      }, 2000)
+      
+    var personagem = document.getElementById("principal");
+    if (this.tela) {
+      
+      if (this.left <= 830) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
           this.lado = 'scaleX(1)'
@@ -60,15 +61,14 @@ export class Parte2Component implements OnInit {
             this.left = this.left + 10
             this.lado = 'scaleX(1)'
           }
-          if (tecla.key == 'ArrowLeft') {
-            this.left = this.left - 10
-            this.lado = 'scaleX(-1)'
-          }
           if (this.left > 1150) {
             console.log('p2')
             this.router.navigate(['/nivel-3'])
-            // this.left = -1000000000
           }
+        }
+        if (tecla.key == 'ArrowLeft') {
+          this.left = this.left - 10
+          this.lado = 'scaleX(-1)'
         }
       }
       
@@ -77,7 +77,7 @@ export class Parte2Component implements OnInit {
 
   vida = 50;
   ganhou = 0;
-  cachorro = false;
+  cachorro = 2;
   ngOnInit(): void {
     setTimeout(() => {
       if (this.ganhou != 1) {
@@ -103,7 +103,9 @@ export class Parte2Component implements OnInit {
   ClickDragao() {
 
     let alimentou = this.localStorageService.get("alimentou")
-
+    if(this.left < 830){
+      return
+    }
     if (this.vida > 0) {
       if (alimentou == true) {
         this.vida = this.vida - 2;
