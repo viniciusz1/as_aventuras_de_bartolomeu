@@ -2,6 +2,7 @@
     width: 170px;
     bottom: 80px;
     z-index: 2;
+    transition: 0.2s;
 }
 .mensagem{
     position: absolute;

@@ -1,8 +1,8 @@
 <app-cenario1 (keydown)="onKeyDown($event)" ></app-cenario1>
-<img [style.transform]="lado" [style.left.px]="left" draggable="false" src="../../assets/PersonagemAnimado.gif" class="position-absolute personagem" alt="">
+<img [style.transform]="lado" [style.bottom.px]="bottom"  [style.left.px]="left" draggable="false" src="../../assets/PersonagemAnimado.gif" class="position-absolute personagem" alt="">
 
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50" [style.top.px]="top" draggable="false" *ngIf="alimentou == 1 && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"[style.top.px]="top" draggable="false" *ngIf="alimentou == 1 && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50" draggable="false" *ngIf="alimentou == 1 && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50" draggable="false" *ngIf="alimentou == 1 && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
 <img id="dog-esq" *ngIf="alimentou == 0" draggable="false" src="../../assets/cachorroParado.png" alt="dog">
 <img id="lapide" *ngIf="alimentou == 2" draggable="false" src="../../assets/lapide.png" alt="lapideDog">
 

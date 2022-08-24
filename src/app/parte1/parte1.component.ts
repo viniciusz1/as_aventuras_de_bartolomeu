@@ -10,7 +10,7 @@ import { LocalStorageService } from '../local-storage.service';
   styleUrls: ['./parte1.component.css'],
 })
 export class Parte1Component implements OnInit, OnDestroy {
-  top = 406;
+  bottom = 90;
   left = 0;
   lado = ''
   paraCachorro = false
@@ -51,8 +51,11 @@ export class Parte1Component implements OnInit, OnDestroy {
       
     }
     if(tecla.key == 'ArrowUp'){
-      this.top= this.top + 10
-      console.log(this.top)
+      this.bottom= this.bottom + 100
+      setTimeout(() => {
+        this.bottom = 90
+      }
+        , 300)
     }
     if (this.left > 1150) {
       this.router.navigate(['/nivel-2'])
