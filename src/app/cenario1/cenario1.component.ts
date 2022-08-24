@@ -13,6 +13,7 @@ export class Cenario1Component implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
     const container = document.getElementById('container');
     console.log(container)
     if (container) {
