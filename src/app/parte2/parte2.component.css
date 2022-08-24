@@ -8,7 +8,9 @@
     bottom: 80px;
     z-index: 2;
 }
-
+.cur{
+    cursor:default !important;
+}
 .barra-prin{
     background-color: red; border: 1px solid black; width: 500px; height: 20px;
 }

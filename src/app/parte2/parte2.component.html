@@ -23,7 +23,7 @@
             <div style="background-color: red; height: 100%" [style.width.%]="100 - vida *2">
             </div>
         </div>
-        <img (click)="ClickDragao()" draggable="false" src="../../assets/inimigoSecundario (1).png" id="imgDragao"
+        <img (click)="ClickDragao()" [class]="{'cur': left < 800}" draggable="false" src="../../assets/inimigoSecundario (1).png" id="imgDragao"
             alt="Dragao" />
     </div>
 </div>
