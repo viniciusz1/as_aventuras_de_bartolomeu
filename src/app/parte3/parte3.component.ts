@@ -31,6 +31,13 @@ export class Parte3Component implements OnInit {
   ganhou = 0;
   vida = 120;
   cachorro = 1;
+  coroa = false
+  fim = 200;
+  timerTela = 200
+  left = 0;
+  lado = ''
+  paraCachorro = false;
+
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -46,8 +53,6 @@ export class Parte3Component implements OnInit {
     this.cachorro = this.localStorageService.get('alimentou')
   }
 
-  fim = 200;
-  timerTela = 200
 
   repeat() {
     setInterval(() => {
@@ -55,7 +60,7 @@ export class Parte3Component implements OnInit {
       this.fim--;
     }, 100)
   }
-  coroa = false
+
   ClickDragao() {
     let alimentou = this.localStorageService.get("alimentou")
     if (this.vida > 0) {
@@ -76,9 +81,7 @@ export class Parte3Component implements OnInit {
 
   }
 
-  left = 0;
-  lado = ''
-  paraCachorro = false;
+  
   onKeyDown(tecla: KeyboardEvent) {
     this.paraCachorro = false
     setTimeout(() => {
