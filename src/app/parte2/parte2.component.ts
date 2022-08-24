@@ -31,7 +31,6 @@ export class Parte2Component implements OnInit {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-
   fim = 200;
   left = 0;
   lado = 'scaleX(1)'
@@ -72,6 +71,7 @@ export class Parte2Component implements OnInit {
           }
         }
       }
+      
     }
   }
 
