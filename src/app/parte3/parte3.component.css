@@ -51,14 +51,14 @@
     animation: mexer 5s infinite alternate;
 }
 
-/* @keyframes mexer {
+@keyframes mexer {
     0% {
         right: 50px;
     } 
     100% {
         right: 800px;
     }
-  } */
+  }
 
 #imgDragao {
     width: 100%;
