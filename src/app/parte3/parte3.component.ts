@@ -86,7 +86,7 @@ export class Parte3Component implements OnInit {
     this.paraCachorro = false
     setTimeout(() => {
       this.paraCachorro = true
-    })
+    }, 2000)
       if(tecla.key == 'ArrowRight'){
         this.left = this.left + 10
         this.lado = 'scaleX(1)'

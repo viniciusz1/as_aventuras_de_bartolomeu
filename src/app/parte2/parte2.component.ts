@@ -36,14 +36,14 @@ export class Parte2Component implements OnInit {
   lado = 'scaleX(1)'
   paraCachorro = false;
   onKeyDown(tecla: KeyboardEvent) {
-
-    var personagem = document.getElementById("principal");
-
-    if (this.tela) {
-      this.paraCachorro = false
+    this.paraCachorro = false
       setTimeout(() => {
         this.paraCachorro = true
-      })
+      }, 2000)
+      
+    var personagem = document.getElementById("principal");
+    if (this.tela) {
+      
       if (this.left < 800) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
