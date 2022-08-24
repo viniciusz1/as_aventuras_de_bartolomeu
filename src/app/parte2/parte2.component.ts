@@ -36,7 +36,6 @@ export class Parte2Component implements OnInit {
   lado = 'scaleX(1)'
   paraCachorro = false;
   onKeyDown(tecla: KeyboardEvent) {
-    console.log('p2')
     this.paraCachorro = false
       setTimeout(() => {
         this.paraCachorro = true

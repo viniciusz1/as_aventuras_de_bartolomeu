@@ -1,10 +1,15 @@
 <app-cenario2></app-cenario2>
 <div id="geral">
     <div *ngIf="ganhou == 0" id="containerTexto">
-        <div>
+        <div class="d-flex" style="flex-direction:column; align-items: center">
             <h1>
-                    {{timerTela | number}}
+                {{timerTela | number}}
             </h1>
+
+            <div style="background-color: red; width: 500px; height: 20px; ">
+                <div style="background-color: white; height: 100%" [style.width.%]="100 - fim/2">
+                </div>
+            </div>
         </div>
     </div>
     <div *ngIf="ganhou != 1" id="pedra">
@@ -12,13 +17,15 @@
     </div>
     <div *ngIf="ganhou != 1" id="containerDragao">
         <h2>{{vida}}</h2>
-        <img (click)="ClickDragao()" draggable="false" src="../../assets/inimigoSecundario (1).png" id="imgDragao" alt="Dragao" />
+        <img (click)="ClickDragao()" draggable="false" src="../../assets/inimigoSecundario (1).png" id="imgDragao"
+            alt="Dragao" />
     </div>
 </div>
 
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro == 1  && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
-<img [style.transform]="lado" id="dog" [style.left.px]="left -50"  draggable="false" *ngIf="cachorro == 1  && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50" draggable="false"
+    *ngIf="cachorro == 1  && paraCachorro" src="../../assets/cachorroParado.png" alt="dog">
+<img [style.transform]="lado" id="dog" [style.left.px]="left -50" draggable="false"
+    *ngIf="cachorro == 1  && !paraCachorro" src="../../assets/cachorro.gif" alt="dog">
 
 <img [style.left.px]="left" [style.transform]="lado" draggable="false" src="../../assets/PersonagemAnimado.gif"
-id="principal" class="position-absolute personagem" alt="">
-
+    id="principal" class="position-absolute personagem" alt="">

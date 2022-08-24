@@ -80,7 +80,6 @@ export class Parte3Component implements OnInit {
   lado = ''
   paraCachorro = false;
   onKeyDown(tecla: KeyboardEvent) {
-    console.log('p3')
     this.paraCachorro = false
     setTimeout(() => {
       this.paraCachorro = true
@@ -93,7 +92,7 @@ export class Parte3Component implements OnInit {
       this.left = this.left - 10
       this.lado = 'scaleX(-1)'
     }
-    if (this.left >= 1050) {
+    if (this.left >= 1050 && this.vida <= 0) {
       this.modalWin()
     }
 
