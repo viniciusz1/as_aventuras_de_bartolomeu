@@ -33,6 +33,13 @@ export class Parte3Component implements OnInit {
   cachorro = false;
 
   ngOnInit(): void {
+    setInterval(()=>{
+      let drag = document.getElementById('containerDragao')
+      console.log(drag?.style.right)
+      console.log(drag)
+    },200)
+
+
     setTimeout(() => {
       if (this.vida == 0) {
         this.ganhou = 1;

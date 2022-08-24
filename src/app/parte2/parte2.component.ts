@@ -44,7 +44,7 @@ export class Parte2Component implements OnInit {
     var personagem = document.getElementById("principal");
     if (this.tela) {
       
-      if (this.left < 800) {
+      if (this.left <= 830) {
         if (tecla.key == 'ArrowRight') {
           this.left = this.left + 10
           this.lado = 'scaleX(1)'
@@ -60,15 +60,14 @@ export class Parte2Component implements OnInit {
             this.left = this.left + 10
             this.lado = 'scaleX(1)'
           }
-          if (tecla.key == 'ArrowLeft') {
-            this.left = this.left - 10
-            this.lado = 'scaleX(-1)'
-          }
           if (this.left > 1150) {
             console.log('p2')
             this.router.navigate(['/nivel-3'])
-            // this.left = -1000000000
           }
+        }
+        if (tecla.key == 'ArrowLeft') {
+          this.left = this.left - 10
+          this.lado = 'scaleX(-1)'
         }
       }
       
@@ -103,7 +102,9 @@ export class Parte2Component implements OnInit {
   ClickDragao() {
 
     let alimentou = this.localStorageService.get("alimentou")
-
+    if(this.left < 830){
+      return
+    }
     if (this.vida > 0) {
       if (alimentou == true) {
         this.vida = this.vida - 2;
